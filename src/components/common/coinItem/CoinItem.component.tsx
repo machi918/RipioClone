@@ -1,0 +1,42 @@
+import React, {FC} from 'react';
+import {View, Text, Image, Pressable} from 'react-native';
+import {RightArrow} from '../../../assets/icons';
+import {Colors} from '../../../assets/theme/Colors';
+
+interface CoinItemInterface {
+  id: string;
+  currency: string;
+  quantity: number;
+  price: number;
+  image: string;
+  onPress: () => void;
+}
+
+export const CoinItem: FC<CoinItemInterface> = ({onPress, ...props}) => {
+  return (
+    <Pressable
+      onPress={onPress}
+      style={{
+        width: '100%',
+        flexDirection: 'row',
+        backgroundColor: Colors.white,
+        marginVertical: 5,
+        alignItems: 'center',
+        height: 50,
+        borderRadius: 8,
+      }}>
+      <View style={{height: 30, width: 30, borderRadius: 15, marginHorizontal: 16, overflow: 'hidden'}}>
+        <Image source={{uri: props.image}} style={{height: 30, width: 30}} />
+      </View>
+      <View>
+        <Text style={{fontWeight: 'bold', color: Colors.black}}>
+          {props.quantity} {props.currency}
+        </Text>
+        <Text style={{fontSize: 12}}>~ ${props.quantity * props.price}</Text>
+      </View>
+      <View style={{position: 'absolute', right: 20}}>
+        <RightArrow name={'chevron-forward-outline'} size={14} color={Colors.black} />
+      </View>
+    </Pressable>
+  );
+};
