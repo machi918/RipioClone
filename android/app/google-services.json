@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "466973245221",
+    "project_id": "ripioclone",
+    "storage_bucket": "ripioclone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466973245221:android:506dd2963c5bc03b8924cc",
+        "android_client_info": {
+          "package_name": "com.ripioclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466973245221-e5v708v767690ain4uju60o1lot5ndi8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbdVHM_ViZYq0D8dKGws7bbwE8xIGngjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "466973245221-e5v708v767690ain4uju60o1lot5ndi8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
