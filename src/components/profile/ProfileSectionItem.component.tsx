@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {View, Text, Pressable} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import {Colors} from '../../assets/theme/Colors';
 //@ts-ignore
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -8,11 +8,12 @@ interface ProfileSectionItemInterface {
   text: string;
   textColor?: string;
   icon: string;
+  onPress: () => void;
 }
 
-export const ProfileSectionItem: FC<ProfileSectionItemInterface> = props => {
+export const ProfileSectionItem: FC<ProfileSectionItemInterface> = ({text, textColor, icon, onPress}) => {
   return (
-    <Pressable
+    <TouchableOpacity
       style={{
         width: '100%',
         height: 50,
@@ -21,7 +22,8 @@ export const ProfileSectionItem: FC<ProfileSectionItemInterface> = props => {
         borderBottomWidth: 1,
         flexDirection: 'row',
         alignItems: 'center',
-      }}>
+      }}
+      onPress={onPress}>
       <View
         style={{
           width: 40,
@@ -32,9 +34,9 @@ export const ProfileSectionItem: FC<ProfileSectionItemInterface> = props => {
           justifyContent: 'center',
           marginRight: 20,
         }}>
-        <Icon name={props.icon} size={18} color={Colors.onSecondary} />
+        <Icon name={icon} size={18} color={Colors.onSecondary} />
       </View>
-      <Text style={{color: props.textColor ?? Colors.black}}>{props.text}</Text>
-    </Pressable>
+      <Text style={{color: textColor ?? Colors.black}}>{text}</Text>
+    </TouchableOpacity>
   );
 };
