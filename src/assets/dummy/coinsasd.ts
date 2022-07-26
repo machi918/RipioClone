@@ -5,7 +5,7 @@ export const dummyData: CoinsGeneralInterface[] = [
     id: 'pesos',
     symbol: 'ars',
     name: 'Pesos',
-    image: 'https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579',
+    image: 'https://assets.coingecko.com/coins/images/23054/large/nuARS_Logo.png?1643149045',
     current_price: 1,
     has: 120.5,
   },
