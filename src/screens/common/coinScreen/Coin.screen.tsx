@@ -38,11 +38,11 @@ const CoinScreen: FC<NativeStackScreenProps<MainNav, 'CoinScreen'>> = ({route, n
       </View>
       <View>
         <View style={{flexDirection: 'row', width: '100%', justifyContent: 'space-evenly'}}>
-          <MiniButton icon="arrow-back-outline" text="Comprar" />
-          <MiniButton icon="arrow-up-outline" text="Vender" />
-          <MiniButton icon="arrow-down-outline" text="Recibir" />
-          <MiniButton icon="arrow-forward-outline" text="Enviar" />
-          <MiniButton icon="arrow-down-outline" text="Swap" />
+          <MiniButton icon="arrow-back-outline" text="Comprar" onPress={() => console.log()} />
+          <MiniButton icon="arrow-up-outline" text="Vender" onPress={() => console.log()} />
+          <MiniButton icon="arrow-down-outline" text="Recibir" onPress={() => console.log()} />
+          <MiniButton icon="arrow-forward-outline" text="Enviar" onPress={() => console.log()} />
+          <MiniButton icon="arrow-down-outline" text="Swap" onPress={() => console.log()} />
         </View>
       </View>
     </BaseScreen>
