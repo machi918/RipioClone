@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {Colors} from '../../assets/theme/Colors';
-import {CoinItem, ProfileHeader, ProfileSection, ProfileSectionItem, TitleText} from '../../components';
+import {ProfileHeader, ProfileSection, ProfileSectionItem, TitleText} from '../../components';
 import {BaseScreen} from '../index';
 import auth from '@react-native-firebase/auth';
 import {constants} from '../../utils/constants';
