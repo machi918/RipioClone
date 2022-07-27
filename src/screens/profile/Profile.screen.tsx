@@ -52,7 +52,7 @@ const ProfileScreen: FC = () => {
         </ProfileSection>
 
         <View style={{width: '100%', height: 50, alignItems: 'center'}}>
-          <Text>Versión 0.0.0</Text>
+          <Text>Versión 0.1.0</Text>
         </View>
       </ScrollView>
     </BaseScreen>
