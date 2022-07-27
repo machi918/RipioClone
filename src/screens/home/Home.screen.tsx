@@ -1,5 +1,5 @@
 import React, {FC, useEffect} from 'react';
-import {View, Text, FlatList, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {Colors} from '../../assets/theme/Colors';
 import {CoinItem, HomeHeader, HomeTotal} from '../../components';
 import {BaseScreen} from '../index';
@@ -11,9 +11,11 @@ import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {HomeNav} from '../../navigation/HomeNav';
 import {NewsList} from '../../components/home/newsList/NewsList.component';
+import {selectUser} from '../../redux/userSlice';
 
 const HomeScreen: FC = () => {
   const coinsState = useAppSelector(selectCoins);
+  const userState = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   const navigation = useNavigation<NativeStackNavigationProp<HomeNav>>();
 
@@ -41,7 +43,16 @@ const HomeScreen: FC = () => {
           <Text style={{marginBottom: 10, fontWeight: 'bold', color: Colors.black}}>Noticias de Coindesk</Text>
           <NewsList data={coinsState.news.slice(0, 10)} />
         </View>
-        {coinsState.generalCoins.slice(0, 5).map(item => (
+        <CoinItem
+          showConverted={false}
+          id={'ars'}
+          currency={'ARS'}
+          quantity={userState.pesos}
+          price={1}
+          image={'https://assets.coingecko.com/coins/images/23054/large/nuARS_Logo.png?164314904'}
+          onPress={() => navigation.navigate('SelectPayScreen')}
+        />
+        {coinsState.generalCoins.slice(1, 5).map(item => (
           <CoinItem
             key={item.id}
             id={item.id}

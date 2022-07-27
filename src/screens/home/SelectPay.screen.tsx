@@ -1,5 +1,5 @@
-import React, {FC, useEffect} from 'react';
-import {View, Text, FlatList, ScrollView, TouchableOpacity} from 'react-native';
+import React, {FC} from 'react';
+import {View} from 'react-native';
 import {Colors} from '../../assets/theme/Colors';
 import {BaseScreen} from '../index';
 import {useNavigation} from '@react-navigation/native';

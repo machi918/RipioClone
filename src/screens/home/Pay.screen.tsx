@@ -1,26 +1,22 @@
-import React, {FC, useEffect, useState} from 'react';
-import {View, Text, FlatList, ScrollView, TouchableOpacity} from 'react-native';
+import React, {FC, useState} from 'react';
+import {View, Text} from 'react-native';
 import {Colors} from '../../assets/theme/Colors';
 import {BaseScreen} from '../index';
-import {useNavigation} from '@react-navigation/native';
-import {
-  NativeStackNavigationProp,
-  NativeStackScreenProps,
-} from '@react-navigation/native-stack/lib/typescript/src/types';
+import {NativeStackScreenProps} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {HomeNav} from '../../navigation/HomeNav';
 import {BackBar, TitleText} from '../../components';
 import {NumberPad} from '../../components/home/numberPad/NumberPad.component';
 import {MainButton} from '../../components/buttons';
 import {useAppDispatch} from '../../redux/hooks';
-import {addPesos} from '../../redux/coinsSlice';
+import {updatePesos} from '../../redux/userSlice';
 
 const PayScreen: FC<NativeStackScreenProps<HomeNav, 'PayScreen'>> = ({route, navigation}) => {
   const [quantity, setQuantity] = useState<number>(0);
-  const {comision, type} = route.params;
+  const {comision} = route.params;
   const dispatch = useAppDispatch();
 
   function handleOnPress() {
-    dispatch(addPesos(quantity));
+    dispatch(updatePesos(quantity));
     navigation.pop(2);
   }
 
