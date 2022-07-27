@@ -10,7 +10,7 @@ module.exports = {
         '@typescript-eslint/no-shadow': ['error'],
         'no-shadow': 'off',
         'no-undef': 'off',
-        '@typescript-eslint/no-unused-vars': 0,
+        '@typescript-eslint/no-unused-vars': 1,
         'react-native/no-inline-styles': 0,
         'react/self-closing-comp': [
           'warn',
