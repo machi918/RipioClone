@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
 
 interface NewsListItemInterface {

@@ -8,11 +8,11 @@ import {useNavigation} from '@react-navigation/native';
 import {HomeNav} from '../../../navigation/HomeNav';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useAppSelector} from '../../../redux/hooks';
-import {selectCoins} from '../../../redux/coinsSlice';
+import {selectUser} from '../../../redux/userSlice';
 
 export const HomeTotal: FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<HomeNav>>();
-  const coinsState = useAppSelector(selectCoins);
+  const userState = useAppSelector(selectUser);
 
   return (
     <View style={{width: '100%', marginBottom: 20}}>
@@ -21,13 +21,13 @@ export const HomeTotal: FC = () => {
         <Icon name={'chevron-forward-outline'} size={14} color={Colors.black} />
       </View>
       <Text style={{fontWeight: 'bold', color: Colors.black, fontSize: 30, marginBottom: 20}}>
-        ~ ${!!coinsState.generalCoins[0] ? coinsState.generalCoins[0].has : 0}
+        ~ ${userState.pesos}
       </Text>
 
       <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
         <FilledButton text="Cargar" onPress={() => navigation.navigate('SelectPayScreen')} />
-        <OutfilledButton text="Comprar" onPress={() => console.log('asdasdasd')} />
-        <PlusButton onPress={() => console.log('asdasdasd')} />
+        <OutfilledButton text="Comprar" onPress={() => console.log('Navigate to Comprar')} />
+        <PlusButton onPress={() => console.log('Navigate to +')} />
       </View>
     </View>
   );

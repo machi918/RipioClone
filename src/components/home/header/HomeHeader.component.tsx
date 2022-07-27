@@ -1,8 +1,6 @@
 import React, {FC} from 'react';
 import {View, Text, Image} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
-//@ts-ignore
-import Icon from 'react-native-vector-icons/Ionicons';
 import {RightArrow} from '../../../assets/icons';
 import {useAppSelector} from '../../../redux/hooks';
 import {selectUser} from '../../../redux/userSlice';
