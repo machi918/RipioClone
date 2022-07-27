@@ -1,5 +1,4 @@
 import {PressableProps} from 'react-native';
-import {Except} from 'type-fest';
 
 export type IconTypes = RightArrowType;
 

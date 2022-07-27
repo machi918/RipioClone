@@ -38,6 +38,7 @@ export interface NewsInterface {
 
 export async function getAllCoins(): Promise<CoinsGeneralInterface[]> {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const response = await httpClient.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=ars');
     return dummyData;
   } catch (error) {
