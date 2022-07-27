@@ -15,7 +15,7 @@ const LaunchScreen: FC = () => {
   return (
     <BaseScreen backgroundColor={Colors.white}>
       <View style={{width: '100%', alignItems: 'center'}}>
-        <Text>V0.00.0</Text>
+        <Text>V0.1.0</Text>
         <Image source={require('../../../src/assets/images/ripioLogo.png')} style={{width: 150, height: 80}} />
       </View>
       <View>
