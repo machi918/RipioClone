@@ -10,6 +10,7 @@ import {MovementsItem} from './movements/MovementsItem.component';
 import {TitleText} from './common/text/TitleText.component';
 import {PaymentItem} from './home/PaymentItem.component';
 import {SingleNumber} from './home/numberPad/SingleNumber.component';
+import {LaunchCarousel} from './launch/carousel/LaunchCarousel.component';
 
 export {
   HomeHeader,
@@ -24,4 +25,5 @@ export {
   TitleText,
   PaymentItem,
   SingleNumber,
+  LaunchCarousel,
 };

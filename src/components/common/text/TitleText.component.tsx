@@ -2,10 +2,11 @@ import React, {FC} from 'react';
 import {Text} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
 
-export const TitleText: FC<{text: string; marginTop?: number; paddingTop?: number}> = ({
+export const TitleText: FC<{text: string; marginTop?: number; paddingTop?: number; centered?: boolean}> = ({
   text,
   marginTop,
   paddingTop,
+  centered = false,
 }) => {
   return (
     <Text
@@ -16,6 +17,7 @@ export const TitleText: FC<{text: string; marginTop?: number; paddingTop?: numbe
         fontWeight: 'bold',
         color: Colors.black,
         fontSize: 20,
+        textAlign: centered ? 'center' : 'left',
       }}>
       {text}
     </Text>

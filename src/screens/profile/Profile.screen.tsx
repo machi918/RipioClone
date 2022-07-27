@@ -4,6 +4,7 @@ import {Colors} from '../../assets/theme/Colors';
 import {CoinItem, ProfileHeader, ProfileSection, ProfileSectionItem, TitleText} from '../../components';
 import {BaseScreen} from '../index';
 import auth from '@react-native-firebase/auth';
+import {constants} from '../../utils/constants';
 
 const ProfileScreen: FC = () => {
   async function handleLogOut() {
@@ -52,7 +53,7 @@ const ProfileScreen: FC = () => {
         </ProfileSection>
 
         <View style={{width: '100%', height: 50, alignItems: 'center'}}>
-          <Text>Versión 0.1.0</Text>
+          <Text>Versión {constants.version}</Text>
         </View>
       </ScrollView>
     </BaseScreen>

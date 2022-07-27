@@ -13,11 +13,7 @@ export const BaseScreen: FC<BaseScreenInterface> = ({children, backgroundColor, 
   const insetStyle = {paddingTop: unsafe ? 0 : insets.top};
 
   return (
-    <KeyboardAvoidingView
-      style={[{flex: 1, height: '100%'}, backgroundStyle]}
-      behavior={isIos ? 'padding' : undefined}
-      // keyboardVerticalOffset={offsets[props.keyboardOffset ?? 'none']}
-    >
+    <KeyboardAvoidingView style={[{flex: 1, height: '100%'}, backgroundStyle]} behavior={isIos ? 'padding' : undefined}>
       <StatusBar barStyle={'light-content'} />
       <View
         style={[
