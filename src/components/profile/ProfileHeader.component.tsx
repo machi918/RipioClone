@@ -44,7 +44,8 @@ export const ProfileHeader: FC = () => {
               marginRight: 10,
               borderWidth: 2,
               borderColor: '#e8da3f',
-            }}></View>
+            }}
+          />
           <Text style={{fontWeight: 'bold', color: Colors.black}}>{userState.rpc} RPC</Text>
         </View>
       </View>

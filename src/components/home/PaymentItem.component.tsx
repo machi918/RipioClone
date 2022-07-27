@@ -29,7 +29,8 @@ export const PaymentItem: FC<PaymentItemInterface> = ({onPress, type, comision})
             borderWidth: 1,
             borderColor: 'rgba(0,0,0,0.1)',
             marginRight: 10,
-          }}></View>
+          }}
+        />
         <View>
           <Text style={{fontWeight: 'bold', color: Colors.black}}>{type}</Text>
           <Text>Comisión {comision}%</Text>

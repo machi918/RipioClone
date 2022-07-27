@@ -44,7 +44,7 @@ const LoginScreen: FC = () => {
   }
 
   return (
-    <BaseScreen backgroundColor={Colors.white}>
+    <BaseScreen backgroundColor={Colors.white} isInputStyle>
       <View style={{width: '100%', alignItems: 'flex-end', marginTop: 20, marginBottom: 10}}>
         <OutfilledButton text="Registrate" onPress={() => navigation.navigate('SignUpScreen')} />
       </View>

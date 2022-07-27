@@ -36,6 +36,7 @@ export const ButtomNavItem: FC<ButtomNavItemInterface> = props => {
         easing: Easing.out(Easing.exp),
       });
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.isFocused]);
 
   const animatedPadding = useSharedValue(0);

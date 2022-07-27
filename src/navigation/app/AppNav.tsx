@@ -19,19 +19,22 @@ export const AppNav: FC = () => {
   const [fetchedUser, setFetchedUser] = useState<boolean>(false);
 
   // Handle user state changes
-  function onAuthStateChanged(user: any) {
-    const userData: FirebaseAuthTypes.User = user;
-    if (user) {
+  function onAuthStateChanged(userAuth: any) {
+    const userData: FirebaseAuthTypes.User = userAuth;
+    if (userAuth) {
       setFetchedUser(true);
     }
-    setUser(user);
-    if (initializing) setInitializing(false);
+    setUser(userAuth);
+    if (initializing) {
+      setInitializing(false);
+    }
   }
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
 
     return subscriber; // unsubscribe on unmount
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (initializing) {

@@ -5,6 +5,7 @@ export interface BaseScreenInterface {
   children: React.ReactNode;
   backgroundColor?: string;
   style?: StyleProp<ViewStyle>;
+  isInputStyle?: boolean;
 
   /**
    * Should we not wrap in SafeAreaView? Defaults to false.

@@ -16,7 +16,7 @@ export const NewsList: FC<NewsListInterface> = ({data}) => {
       decelerationRate={100}
       snapToInterval={320}
       //   snapToAlignment="start"
-      ItemSeparatorComponent={() => <View style={{width: 20}}></View>}
+      ItemSeparatorComponent={() => <View style={{width: 20}} />}
       renderItem={({item}) => (
         <NewsListItem key={item.id} title={item.title} body={item.slug} path={item.url} domain={item.domain} />
       )}

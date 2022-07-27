@@ -2,6 +2,7 @@ import React, {FC, useState} from 'react';
 import {View, Text, TextInput, Button} from 'react-native';
 import {BaseScreen} from '../../common/baseScreen/BaseScreen.screen';
 import auth from '@react-native-firebase/auth';
+import {Colors} from '../../../assets/theme/Colors';
 
 const SignUpScreen: FC = () => {
   const [mail, setMail] = useState<string>('');
@@ -19,7 +20,7 @@ const SignUpScreen: FC = () => {
   }
 
   return (
-    <BaseScreen>
+    <BaseScreen backgroundColor={Colors.white} isInputStyle>
       <View>
         <Text>SIGN UP</Text>
         <TextInput placeholder="MAIL" onChangeText={text => setMail(text)} />

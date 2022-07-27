@@ -26,8 +26,8 @@ export const HomeTotal: FC = () => {
 
       <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
         <FilledButton text="Cargar" onPress={() => navigation.navigate('SelectPayScreen')} />
-        <OutfilledButton text="Comprar" />
-        <PlusButton />
+        <OutfilledButton text="Comprar" onPress={() => console.log('asdasdasd')} />
+        <PlusButton onPress={() => console.log('asdasdasd')} />
       </View>
     </View>
   );
