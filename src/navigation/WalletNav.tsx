@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {CoinScreen, MyWalletScreen} from '../screens';
+import {MyWalletScreen} from '../screens';
 import {TabNavParams} from './TabNav';
 import {Except} from 'type-fest';
 

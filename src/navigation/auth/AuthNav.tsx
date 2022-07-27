@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Except} from 'type-fest';
 import {LaunchScreen, LoginScreen, SignUpScreen} from '../../screens';
 
 export type AuthNav = {

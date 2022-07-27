@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {MyWalletScreen, ProductsScreen} from '../screens';
+import {ProductsScreen} from '../screens';
 
 const Stack = createNativeStackNavigator();
 
