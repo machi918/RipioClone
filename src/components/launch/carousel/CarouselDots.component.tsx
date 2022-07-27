@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import {View} from 'react-native';
-import {Colors} from '../../../assets/theme/Colors';
 import {CarouselDot} from './CourselDot.component';
 
 interface CarouselDotsIntertface {

@@ -1,11 +1,12 @@
 import React, {FC} from 'react';
-import {Pressable, Text} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
 import {OutFilledButtonType} from '../buttons.types';
 
 export const OutfilledButton: FC<OutFilledButtonType> = props => {
   return (
-    <Pressable
+    <TouchableOpacity
+      onPress={props.onPress}
       style={{
         backgroundColor: Colors.secondaryVariant,
         width: 120,
@@ -15,6 +16,6 @@ export const OutfilledButton: FC<OutFilledButtonType> = props => {
         alignItems: 'center',
       }}>
       <Text style={{color: Colors.onSecondary}}>{props.text}</Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
