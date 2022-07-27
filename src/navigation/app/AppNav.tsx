@@ -3,7 +3,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SplashScreen} from '../../screens';
 import {AuthNav} from '../auth/AuthNav';
 import {MainNav} from '../MainNav';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import {useAppDispatch} from '../../redux/hooks';
+import {resetUserData, setUserData} from '../../redux/userSlice';
 
 export type AppNav = {
   MainNav: undefined;
@@ -16,13 +19,23 @@ export const AppNav: FC = () => {
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
-  const [fetchedUser, setFetchedUser] = useState<boolean>(false);
+  // const [fetchedUser, setFetchedUser] = useState<boolean>(false);
+  const dispatch = useAppDispatch();
 
   // Handle user state changes
   function onAuthStateChanged(userAuth: any) {
-    const userData: FirebaseAuthTypes.User = userAuth;
+    // const userData: FirebaseAuthTypes.User = userAuth;
     if (userAuth) {
-      setFetchedUser(true);
+      dispatch(
+        setUserData({
+          mail: 'asdasd',
+          name: 'Mati',
+          rpc: 200,
+          pesos: 20202,
+        }),
+      );
+    } else {
+      dispatch(resetUserData());
     }
     setUser(userAuth);
     if (initializing) {
