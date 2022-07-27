@@ -2,7 +2,7 @@ import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {FC, useState} from 'react';
-import {View, Text, Button, TextInput, StyleSheet, Image} from 'react-native';
+import {View, TextInput, StyleSheet, Image} from 'react-native';
 import Animated, {useAnimatedStyle, useSharedValue, withRepeat, withTiming} from 'react-native-reanimated';
 import {Colors} from '../../../assets/theme/Colors';
 import {TitleText} from '../../../components';
@@ -19,12 +19,7 @@ const LoginScreen: FC = () => {
 
   const offsetY = useSharedValue(-2);
 
-  offsetY.value = withRepeat(
-    withTiming(2, {duration: 700}, (finished, currentValue) => {}),
-    -1,
-    true,
-    finished => {},
-  );
+  offsetY.value = withRepeat(withTiming(2, {duration: 700}), -1, true);
 
   const animatedStyle = useAnimatedStyle(() => {
     return {

@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text} from 'react-native';
 import {Colors} from '../../assets/theme/Colors';
-import {CoinItem, TitleText} from '../../components';
+import {TitleText} from '../../components';
 import {BaseScreen} from '../index';
 
 const ProductsScreen: FC = () => {

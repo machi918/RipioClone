@@ -6,18 +6,32 @@ import {CoinItem, TitleText} from '../../components';
 import {WalletNav} from '../../navigation/WalletNav';
 import {selectCoins} from '../../redux/coinsSlice';
 import {useAppSelector} from '../../redux/hooks';
+import {selectUser} from '../../redux/userSlice';
 import {BaseScreen} from '../index';
 
 const MyWalletScreen: FC = () => {
   const coinsState = useAppSelector(selectCoins);
   const navigation = useNavigation<NativeStackNavigationProp<WalletNav>>();
+  const userState = useAppSelector(selectUser);
 
   return (
     <BaseScreen>
       <TitleText text="Mi billetera" />
       <FlatList
-        data={coinsState.generalCoins}
+        data={coinsState.generalCoins.slice(1)}
         showsVerticalScrollIndicator={false}
+        ListHeaderComponent={() => (
+          <CoinItem
+            showRightArrow={false}
+            showConverted={false}
+            id={'ars'}
+            currency={'ARS'}
+            quantity={userState.pesos}
+            price={1}
+            image={'https://assets.coingecko.com/coins/images/23054/large/nuARS_Logo.png?164314904'}
+            onPress={() => console.log()}
+          />
+        )}
         renderItem={({item}) => (
           <CoinItem
             key={item.id}

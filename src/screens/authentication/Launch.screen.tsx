@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {FC, useEffect, forwardRef, useState, useRef, createRef} from 'react';
+import React, {FC, useEffect, useState, createRef} from 'react';
 import {View, Text, Image} from 'react-native';
 import PagerView from 'react-native-pager-view';
 import {launchData} from '../../assets/dummy/launchData';

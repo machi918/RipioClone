@@ -34,7 +34,7 @@ export const BaseScreen: FC<BaseScreenInterface> = ({
                 width: '100%',
                 paddingHorizontal: 20,
               },
-              style,
+              styleProps,
               insetStyle,
             ]}>
             {children}
@@ -57,7 +57,7 @@ export const BaseScreen: FC<BaseScreenInterface> = ({
               width: '100%',
               paddingHorizontal: 20,
             },
-            style,
+            styleProps,
             insetStyle,
           ]}>
           {children}
