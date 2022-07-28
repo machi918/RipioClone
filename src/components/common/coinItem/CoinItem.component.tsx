@@ -38,7 +38,7 @@ export const CoinItem: FC<CoinItemInterface> = ({onPress, showConverted = true, 
       </View>
       {showRightArrow ? (
         <View style={{position: 'absolute', right: 20}}>
-          <RightArrow name={'chevron-forward-outline'} size={14} color={Colors.black} />
+          <RightArrow size={14} />
         </View>
       ) : null}
     </Pressable>

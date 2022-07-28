@@ -27,7 +27,7 @@ export const MisionListItem: FC<MisionListItemInterface> = ({rpcWON, subtitle, t
       </NewView>
       <NewView alignItemsCenter flexDirection="row" allHeight style={{width: '25%'}} justifyContent="flex-end">
         <Text>+{rpcWON}</Text>
-        <RightArrow name={'chevron-forward-outline'} size={22} color={Colors.black} />
+        <RightArrow />
       </NewView>
     </NewView>
   );

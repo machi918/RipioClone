@@ -1,18 +1,15 @@
 import React, {FC} from 'react';
 import {TouchableOpacity, View, Image, Text} from 'react-native';
 import {Colors} from '../../assets/theme/Colors';
-//@ts-ignore
-import Icon from 'react-native-vector-icons/Ionicons';
-import {useAppSelector} from '../../redux/hooks';
-import {selectUser} from '../../redux/userSlice';
+import {RightArrow} from '../../assets/icons';
 
 interface ProfileHeaderInterface {
   onPress: () => void;
+  name: string;
+  rpc: number;
 }
 
-export const ProfileHeader: FC<ProfileHeaderInterface> = ({onPress}) => {
-  const userState = useAppSelector(selectUser);
-
+export const ProfileHeader: FC<ProfileHeaderInterface> = ({onPress, name, rpc}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -38,7 +35,7 @@ export const ProfileHeader: FC<ProfileHeaderInterface> = ({onPress}) => {
         <Image source={{uri: 'https://picsum.photos/200'}} style={{height: 50, width: 50, borderRadius: 25}} />
       </View>
       <View>
-        <Text style={{fontWeight: 'bold', color: Colors.black}}>{userState.userData.name}</Text>
+        <Text style={{fontWeight: 'bold', color: Colors.black}}>{name}</Text>
         <View style={{flexDirection: 'row'}}>
           <View
             style={{
@@ -51,11 +48,11 @@ export const ProfileHeader: FC<ProfileHeaderInterface> = ({onPress}) => {
               borderColor: '#e8da3f',
             }}
           />
-          <Text style={{fontWeight: 'bold', color: Colors.black}}>{userState.userData.rpc} RPC</Text>
+          <Text style={{fontWeight: 'bold', color: Colors.black}}>{rpc} RPC</Text>
         </View>
       </View>
       <View style={{position: 'absolute', right: 20}}>
-        <Icon name={'chevron-forward-outline'} size={22} color={Colors.black} />
+        <RightArrow />
       </View>
     </TouchableOpacity>
   );

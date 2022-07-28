@@ -2,16 +2,13 @@ import React, {FC} from 'react';
 import {TouchableOpacity, Text, View, Image} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
 import {RightArrow} from '../../../assets/icons';
-import {useAppSelector} from '../../../redux/hooks';
-import {selectUser} from '../../../redux/userSlice';
 
 interface HomeHeaderInterface {
   onPress: () => void;
+  rpc: number;
 }
 
-export const HomeHeader: FC<HomeHeaderInterface> = ({onPress}) => {
-  const userState = useAppSelector(selectUser);
-
+export const HomeHeader: FC<HomeHeaderInterface> = ({onPress, rpc}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -45,10 +42,10 @@ export const HomeHeader: FC<HomeHeaderInterface> = ({onPress}) => {
             borderColor: '#e8da3f',
           }}
         />
-        <Text style={{fontWeight: 'bold', color: Colors.black}}>{userState.userData.rpc} RPC</Text>
+        <Text style={{fontWeight: 'bold', color: Colors.black}}>{rpc} RPC</Text>
       </View>
       <View style={{position: 'absolute', right: 20}}>
-        <RightArrow name={'chevron-forward-outline'} size={22} color={Colors.black} />
+        <RightArrow />
       </View>
     </TouchableOpacity>
   );
