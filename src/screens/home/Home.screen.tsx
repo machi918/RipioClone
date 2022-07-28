@@ -20,8 +20,8 @@ const HomeScreen: FC = () => {
   return (
     <BaseScreen backgroundColor={Colors.secondary}>
       <ScrollView style={{marginTop: 20}} showsVerticalScrollIndicator={false}>
-        <HomeHeader onPress={() => navigation.navigate('UserInfoScreen')} />
-        <HomeTotal />
+        <HomeHeader rpc={userState.userData.rpc} onPress={() => navigation.navigate('UserInfoScreen')} />
+        <HomeTotal uid={userState.uid!} pesos={userState.userData.pesos} />
         <View>
           <Text style={{marginBottom: 10, fontWeight: 'bold', color: Colors.black}}>Noticias de CrytoPanic</Text>
           {coinsState.news ? (
@@ -62,7 +62,7 @@ const HomeScreen: FC = () => {
           style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginVertical: 20}}
           onPress={() => navigation.navigate('WalletNav')}>
           <Text style={{color: Colors.onSecondary, fontWeight: 'bold', fontSize: 12}}>Ver todos mis balances</Text>
-          <RightArrow name="chevron-forward-outline" size={14} color={Colors.onSecondary} />
+          <RightArrow size={14} color={Colors.onSecondary} />
         </TouchableOpacity>
         <View>
           <Text style={{marginBottom: 10, fontWeight: 'bold', color: Colors.black}}>
