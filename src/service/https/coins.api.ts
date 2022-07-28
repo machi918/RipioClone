@@ -1,4 +1,4 @@
-import {dummyData} from '../../assets/dummy/coinsasd';
+import {dummyData} from '../../assets/dummy/coinsDummy';
 import httpClient from './api.service';
 
 //Interfaces
