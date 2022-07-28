@@ -27,7 +27,6 @@ export const AppNav: FC = () => {
     if (userAuth) {
       const userSVInfo: UserData = await getUser(userData.uid);
       if (userSVInfo) {
-        console.log(userSVInfo);
         dispatch(
           setUserData({
             userData: {...userSVInfo},
