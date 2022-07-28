@@ -6,13 +6,14 @@ import {Colors} from '../../../assets/theme/Colors';
 
 interface BackBarInterface {
   onPress: () => void;
+  color?: string;
 }
 
-export const BackBar: FC<BackBarInterface> = ({onPress}) => {
+export const BackBar: FC<BackBarInterface> = ({onPress, color}) => {
   return (
     <View style={{width: '100%', marginTop: 20}}>
       <TouchableOpacity style={{height: 40, width: 40}} onPress={onPress}>
-        <Icon name={'chevron-back-outline'} size={22} color={Colors.black} />
+        <Icon name={'chevron-back-outline'} size={22} color={color ?? Colors.black} />
       </TouchableOpacity>
     </View>
   );
