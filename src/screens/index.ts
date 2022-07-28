@@ -13,6 +13,7 @@ import SignUpScreen from './authentication/signup/SignUp';
 import LaunchScreen from './authentication/Launch.screen';
 import ForgetPasswordScreen from './authentication/forgetPassword/ForgetPassword.screen';
 import UserInfoScreen from './common/infoScreen/UserInfo.screen';
+import PersonalDataScreen from './profile/PersonalData.screen';
 
 export {
   BaseScreen,
@@ -30,4 +31,5 @@ export {
   LaunchScreen,
   ForgetPasswordScreen,
   UserInfoScreen,
+  PersonalDataScreen,
 };
