@@ -21,7 +21,7 @@ export const HomeTotal: FC = () => {
         <Icon name={'chevron-forward-outline'} size={14} color={Colors.black} />
       </View>
       <Text style={{fontWeight: 'bold', color: Colors.black, fontSize: 30, marginBottom: 20}}>
-        ~ ${userState.pesos}
+        ~ ${userState.userData.pesos}
       </Text>
 
       <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
