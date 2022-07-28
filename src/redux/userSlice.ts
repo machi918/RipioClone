@@ -1,18 +1,20 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {UserData} from '../service/firebase/users.service';
 import {RootState} from './store';
 
 interface initialContentState {
-  name: string;
-  rpc: number;
-  pesos: number;
-  mail: string;
+  userData: UserData;
+  uid: string | null;
 }
 
 const initialState: initialContentState = {
-  name: '',
-  rpc: 0,
-  pesos: 0,
-  mail: '',
+  userData: {
+    name: '',
+    rpc: 0,
+    pesos: 0,
+    mail: '',
+  },
+  uid: null,
 };
 
 export const userSlice = createSlice({
@@ -24,19 +26,17 @@ export const userSlice = createSlice({
     //   state.generalCoins = action.payload;
     // },
     setUserData: (state, action: PayloadAction<initialContentState>) => {
-      state.rpc = action.payload.rpc;
-      state.pesos = action.payload.pesos;
-      state.name = action.payload.name;
-      state.mail = action.payload.mail;
+      state.userData = action.payload.userData;
+      state.uid = action.payload.uid;
     },
     updateUserName: (state, action: PayloadAction<string>) => {
-      state.name = action.payload;
+      state.userData.name = action.payload;
     },
     updateRPC: (state, action: PayloadAction<number>) => {
-      state.rpc += action.payload;
+      state.userData.rpc += action.payload;
     },
     updatePesos: (state, action: PayloadAction<number>) => {
-      state.pesos += action.payload;
+      state.userData.rpc += action.payload;
     },
     resetUserData: () => initialState,
   },
