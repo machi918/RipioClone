@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import {ScrollView, Text} from 'react-native';
-import {RightArrow} from '../../assets/icons';
 import {Colors} from '../../assets/theme/Colors';
 import {NewView} from '../common/view/NewView.component';
 import {MisionListItem, MisionListItemInterface} from './MisionListItem.component';
@@ -26,7 +25,7 @@ export const MisionList: FC = () => {
       <NewView allWidth justifyContentCenter style={{height: 50, paddingHorizontal: 20}}>
         <Text style={{fontWeight: 'bold', color: Colors.black}}>Bitácora de misiones</Text>
       </NewView>
-      <ScrollView style={{paddingHorizontal: 20}}>
+      <ScrollView>
         {dummy.map(item => (
           <MisionListItem rpcWON={item.rpcWON} subtitle={item.subtitle} title={item.title} key={item.id} id={item.id} />
         ))}
