@@ -22,6 +22,7 @@ export const TitleText: FC<TitleTextInterface> = ({
 }) => {
   return (
     <Text
+      {...props}
       style={[
         {
           marginTop: marginTop ?? 20,

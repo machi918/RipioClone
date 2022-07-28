@@ -1,10 +1,9 @@
 import React, {FC} from 'react';
-import {View} from 'react-native';
 import {Colors} from '../../assets/theme/Colors';
 import {BaseScreen} from '../index';
 import {NativeStackScreenProps} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {HomeNav} from '../../navigation/HomeNav';
-import {BackBar, PaymentItem, TitleText} from '../../components';
+import {BackBar, NewView, PaymentItem, TitleText} from '../../components';
 import {PaymentItemInterface} from '../../components/home/PaymentItem.component';
 import {Except} from 'type-fest';
 
@@ -16,7 +15,7 @@ const SelectPayScreen: FC<NativeStackScreenProps<HomeNav, 'SelectPayScreen'>> = 
   return (
     <BaseScreen backgroundColor={Colors.secondary}>
       <BackBar onPress={() => navigation.goBack()} />
-      <View style={{width: '100%', alignItems: 'center'}}>
+      <NewView allWidth alignItemsCenter>
         <TitleText text="¿Cómo querés hacerlo?" />
 
         <PaymentItem
@@ -43,7 +42,7 @@ const SelectPayScreen: FC<NativeStackScreenProps<HomeNav, 'SelectPayScreen'>> = 
           comision={2.5}
           onPress={() => navigation.navigate('PayScreen', {comision: 2.5, type: 'Efectivo', uid})}
         />
-      </View>
+      </NewView>
     </BaseScreen>
   );
 };

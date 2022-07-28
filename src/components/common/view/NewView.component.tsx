@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {View, ViewProps} from 'react-native';
 
 interface NewViewInterface extends ViewProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   allWidth?: boolean;
   allHeight?: boolean;
   backgroundColor?: string;
@@ -43,6 +43,7 @@ export const NewView: FC<NewViewInterface> = ({
 }) => {
   return (
     <View
+      {...props}
       style={[
         {
           justifyContent: allCentered || justifyContentCenter ? 'center' : justifyContent ?? 'flex-start',

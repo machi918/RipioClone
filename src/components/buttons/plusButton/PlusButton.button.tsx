@@ -2,8 +2,7 @@ import React, {FC} from 'react';
 import {TouchableOpacity} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
 import {PlusButtonType} from '../buttons.types';
-//@ts-ignore
-import Icon from 'react-native-vector-icons/Ionicons';
+import {IonicIcon} from '../../../assets/icons';
 
 export const PlusButton: FC<PlusButtonType> = props => {
   return (
@@ -17,7 +16,7 @@ export const PlusButton: FC<PlusButtonType> = props => {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <Icon name={'add-outline'} size={30} color={Colors.onSecondary} />
+      <IonicIcon name={'add-outline'} size={30} color={Colors.onSecondary} />
     </TouchableOpacity>
   );
 };
