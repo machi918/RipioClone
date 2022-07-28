@@ -3,6 +3,7 @@ import {Modal, Image} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
 import {BackBar, NewView, TitleText} from '../../../components';
 import {MainButton} from '../../../components/buttons';
+import {openInbox} from 'react-native-email-link';
 
 interface ForgetPasswordModalInterface {
   onClose: (closed: boolean) => void;
@@ -11,7 +12,13 @@ interface ForgetPasswordModalInterface {
 }
 
 export const ForgetPasswordModal: FC<ForgetPasswordModalInterface> = ({onClose, showModal, email}) => {
-  async function handleOpenMail() {}
+  async function handleOpenMail() {
+    try {
+      openInbox();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <Modal
@@ -42,7 +49,7 @@ export const ForgetPasswordModal: FC<ForgetPasswordModalInterface> = ({onClose, 
             text="Abrir tu email"
             textColor={Colors.onSecondary}
             backgroundColor={Colors.white}
-            onPress={() => console.log('asdasdasd')}
+            onPress={() => handleOpenMail()}
           />
         </NewView>
       </NewView>

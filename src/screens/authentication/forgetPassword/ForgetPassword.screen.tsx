@@ -2,13 +2,15 @@ import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {FC, useState} from 'react';
-import {View, TextInput, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
-import {BackBar, NewView, TitleText} from '../../../components';
+import {BackBar, EmailInput, NewView, TitleText} from '../../../components';
 import {MainButton} from '../../../components/buttons';
 import {AuthNav} from '../../../navigation/auth/AuthNav';
 import {BaseScreen} from '../../common/baseScreen/BaseScreen.screen';
 import {ForgetPasswordModal} from './ForgetPassword.modal';
+// @ts-ignore
+import isEmail from 'validator/lib/isEmail';
 
 const ForgetPasswordScreen: FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<AuthNav>>();
@@ -34,31 +36,13 @@ const ForgetPasswordScreen: FC = () => {
       <BackBar onPress={() => navigation.goBack()} />
       <NewView allWidth alignItemsCenter>
         <TitleText text="Ingresá tu email para reestablecer la contraseña" centered marginTop={10} marginBottom={40} />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Email"
-          onChangeText={text => setMail(text)}
-          accessibilityLabel={'Correo electrónico'}
-          autoCapitalize={'none'}
-          underlineColorAndroid={Colors.primary}
-          keyboardType={'email-address'}
-          autoComplete={'email'}
-          maxLength={40}
-          textContentType={'emailAddress'}
-        />
+        <EmailInput height={50} onChangeText={text => setMail(text)} />
       </NewView>
       <View style={{position: 'absolute', bottom: 40, right: 20, left: 20}}>
-        <MainButton text="Enviar" onPress={() => handleReq(mail)} loading={loading} disabled={mail.length < 1} />
+        <MainButton text="Enviar" onPress={() => handleReq(mail)} loading={loading} disabled={!isEmail(mail)} />
       </View>
     </BaseScreen>
   );
 };
-
-const styles = StyleSheet.create({
-  textInput: {
-    width: '100%',
-    height: 50,
-  },
-});
 
 export default ForgetPasswordScreen;
