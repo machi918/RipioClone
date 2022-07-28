@@ -1,6 +1,6 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React, {FC} from 'react';
-import {View, Text, ScrollView, Image} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
 import {BackBar} from '../../../components';
 import {MiniButton} from '../../../components/buttons/miniButton/MiniButton.button';
@@ -16,7 +16,7 @@ export interface CoinScreenInterface {
 }
 
 const CoinScreen: FC<NativeStackScreenProps<MainNav, 'CoinScreen'>> = ({route, navigation}) => {
-  const {id, currency, quantity, price, image} = route.params;
+  const {currency, quantity, price, image} = route.params;
 
   return (
     <BaseScreen backgroundColor={Colors.white}>

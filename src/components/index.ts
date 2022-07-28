@@ -11,6 +11,11 @@ import {TitleText} from './common/text/TitleText.component';
 import {PaymentItem} from './home/PaymentItem.component';
 import {SingleNumber} from './home/numberPad/SingleNumber.component';
 import {LaunchCarousel} from './launch/carousel/LaunchCarousel.component';
+import {NewView} from './common/view/NewView.component';
+import {UserInfoHeaderComponent} from './userInfoScreenComp/UserInfoHeader.components';
+import {UserInfoRPCComponent} from './userInfoScreenComp/UserInfoRPC.component';
+import {MisionListItem} from './userInfoScreenComp/MisionListItem.component';
+import {MisionList} from './userInfoScreenComp/MisionList.component';
 
 export {
   HomeHeader,
@@ -26,4 +31,9 @@ export {
   PaymentItem,
   SingleNumber,
   LaunchCarousel,
+  NewView,
+  UserInfoHeaderComponent,
+  UserInfoRPCComponent,
+  MisionList,
+  MisionListItem,
 };

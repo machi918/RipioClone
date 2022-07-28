@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
-import {View, Text, ScrollView, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import {movimientosDummy} from '../../assets/dummy/movimientos';
 import {Colors} from '../../assets/theme/Colors';
-import {CoinItem, MovementsItem, TitleText} from '../../components';
+import {MovementsItem, TitleText} from '../../components';
 import {BaseScreen} from '../index';
 
 const MovementsScreen: FC = () => {

@@ -2,11 +2,12 @@ import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {FC, useState} from 'react';
-import {View, Text, Button, TextInput, StyleSheet, Image} from 'react-native';
+import {View, TextInput, StyleSheet, Image} from 'react-native';
 import Animated, {useAnimatedStyle, useSharedValue, withRepeat, withTiming} from 'react-native-reanimated';
 import {Colors} from '../../../assets/theme/Colors';
 import {TitleText} from '../../../components';
 import {MainButton, OutfilledButton} from '../../../components/buttons';
+import {PressableText} from '../../../components/buttons/pressableText/PressableText.button';
 import {AuthNav} from '../../../navigation/auth/AuthNav';
 import {BaseScreen} from '../../common/baseScreen/BaseScreen.screen';
 
@@ -19,12 +20,7 @@ const LoginScreen: FC = () => {
 
   const offsetY = useSharedValue(-2);
 
-  offsetY.value = withRepeat(
-    withTiming(2, {duration: 700}, (finished, currentValue) => {}),
-    -1,
-    true,
-    finished => {},
-  );
+  offsetY.value = withRepeat(withTiming(2, {duration: 700}), -1, true);
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -44,7 +40,7 @@ const LoginScreen: FC = () => {
   }
 
   return (
-    <BaseScreen backgroundColor={Colors.white}>
+    <BaseScreen backgroundColor={Colors.white} isInputStyle>
       <View style={{width: '100%', alignItems: 'flex-end', marginTop: 20, marginBottom: 10}}>
         <OutfilledButton text="Registrate" onPress={() => navigation.navigate('SignUpScreen')} />
       </View>
@@ -54,7 +50,7 @@ const LoginScreen: FC = () => {
       </Animated.View>
 
       <View style={{width: '100%', alignItems: 'center'}}>
-        <TitleText text="¡El mundo cripto te espera!" marginTop={10} />
+        <TitleText text="¡El mundo cripto te espera!" centered marginTop={10} />
         <TextInput
           style={styles.textInput}
           placeholder="Mail"
@@ -79,6 +75,13 @@ const LoginScreen: FC = () => {
           textContentType={'password'}
           autoComplete={'password'}
           maxLength={40}
+        />
+      </View>
+      <View style={{width: '100%', alignItems: 'flex-end'}}>
+        <PressableText
+          text="¿Olvidaste tu contraseña?"
+          marginTop={12}
+          onPress={() => navigation.navigate('ForgetPasswordScreen')}
         />
       </View>
       <View style={{position: 'absolute', bottom: 40, right: 20, left: 20}}>

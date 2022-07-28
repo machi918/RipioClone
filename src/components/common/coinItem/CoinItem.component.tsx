@@ -10,9 +10,11 @@ interface CoinItemInterface {
   price: number;
   image: string;
   onPress: () => void;
+  showConverted?: boolean;
+  showRightArrow?: boolean;
 }
 
-export const CoinItem: FC<CoinItemInterface> = ({onPress, ...props}) => {
+export const CoinItem: FC<CoinItemInterface> = ({onPress, showConverted = true, showRightArrow = true, ...props}) => {
   return (
     <Pressable
       onPress={onPress}
@@ -32,11 +34,13 @@ export const CoinItem: FC<CoinItemInterface> = ({onPress, ...props}) => {
         <Text style={{fontWeight: 'bold', color: Colors.black}}>
           {props.quantity} {props.currency}
         </Text>
-        <Text style={{fontSize: 12}}>~ ${props.quantity * props.price}</Text>
+        {showConverted ? <Text style={{fontSize: 12}}>~ ${props.quantity * props.price}</Text> : null}
       </View>
-      <View style={{position: 'absolute', right: 20}}>
-        <RightArrow name={'chevron-forward-outline'} size={14} color={Colors.black} />
-      </View>
+      {showRightArrow ? (
+        <View style={{position: 'absolute', right: 20}}>
+          <RightArrow name={'chevron-forward-outline'} size={14} color={Colors.black} />
+        </View>
+      ) : null}
     </Pressable>
   );
 };

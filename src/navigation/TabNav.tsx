@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeNav} from './HomeNav';
 import {WalletNav} from './WalletNav';
 import {ProductsNav} from './ProductsNav';
-import {CoinScreen, MovementsScreen} from '../screens';
+import {MovementsScreen} from '../screens';
 import {ProfileNav} from './ProfileNav';
 import {MyTabBar} from '../components';
 import {MainNav} from './MainNav';
@@ -14,7 +14,6 @@ export type TabNavParams = MainNav & {
   ProductsNav: undefined;
   MovementsScreen: undefined;
   PerfilNav: undefined;
-  // CoinScreen: undefined;
 };
 
 const Tab = createBottomTabNavigator<TabNavParams>();

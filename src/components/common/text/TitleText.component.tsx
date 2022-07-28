@@ -1,24 +1,39 @@
 import React, {FC} from 'react';
-import {Text} from 'react-native';
+import {Text, TextProps} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
 
-export const TitleText: FC<{text: string; marginTop?: number; paddingTop?: number; centered?: boolean}> = ({
+interface TitleTextInterface extends TextProps {
+  text: string;
+  textColor?: string;
+  marginTop?: number;
+  paddingTop?: number;
+  centered?: boolean;
+  marginBottom?: number;
+}
+
+export const TitleText: FC<TitleTextInterface> = ({
   text,
+  textColor,
   marginTop,
+  marginBottom,
   paddingTop,
   centered = false,
+  ...props
 }) => {
   return (
     <Text
-      style={{
-        marginTop: marginTop ?? 20,
-        paddingTop: paddingTop ?? 20,
-        marginBottom: 20,
-        fontWeight: 'bold',
-        color: Colors.black,
-        fontSize: 20,
-        textAlign: centered ? 'center' : 'left',
-      }}>
+      style={[
+        {
+          marginTop: marginTop ?? 20,
+          paddingTop: paddingTop ?? 20,
+          marginBottom: marginBottom ?? 20,
+          fontWeight: 'bold',
+          color: textColor ?? Colors.black,
+          fontSize: 20,
+          textAlign: centered ? 'center' : 'left',
+        },
+        props.style,
+      ]}>
       {text}
     </Text>
   );

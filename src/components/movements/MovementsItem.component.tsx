@@ -32,7 +32,7 @@ export const MovementsItem: FC<MovementsItemInterface> = ({onPress, data}) => {
             flexDirection: 'row',
             alignItems: 'center',
           }}>
-          <View style={{width: 20, height: 20, borderRadius: 10, backgroundColor: '#00FF00', marginRight: 10}}></View>
+          <View style={{width: 20, height: 20, borderRadius: 10, backgroundColor: '#00FF00', marginRight: 10}} />
           <View>
             <Text>{data.action}</Text>
             <Text>{date.toString()}</Text>

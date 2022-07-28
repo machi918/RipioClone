@@ -11,6 +11,8 @@ import {SplashScreen} from './common/splash/Splash.screen';
 import LoginScreen from './authentication/login/Login.screen';
 import SignUpScreen from './authentication/signup/SignUp';
 import LaunchScreen from './authentication/Launch.screen';
+import ForgetPasswordScreen from './authentication/forgetPassword/ForgetPassword.screen';
+import UserInfoScreen from './common/infoScreen/UserInfo.screen';
 
 export {
   BaseScreen,
@@ -26,4 +28,6 @@ export {
   LoginScreen,
   SignUpScreen,
   LaunchScreen,
+  ForgetPasswordScreen,
+  UserInfoScreen,
 };

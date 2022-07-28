@@ -23,7 +23,6 @@ export const dummyData: CoinsGeneralInterface[] = [
     name: 'Ethereum',
     image: 'https://assets.coingecko.com/coins/images/279/large/ethereum.png?1595348880',
     current_price: 185692,
-
     has: 0.0,
   },
   {

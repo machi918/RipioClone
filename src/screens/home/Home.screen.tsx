@@ -1,46 +1,45 @@
-import React, {FC, useEffect} from 'react';
-import {View, Text, FlatList, ScrollView, TouchableOpacity} from 'react-native';
+import React, {FC} from 'react';
+import {View, Text, ScrollView, TouchableOpacity, ActivityIndicator} from 'react-native';
 import {Colors} from '../../assets/theme/Colors';
 import {CoinItem, HomeHeader, HomeTotal} from '../../components';
 import {BaseScreen} from '../index';
 import {RightArrow} from '../../assets/icons';
-import {getAllCoins, getNews} from '../../service/https/coins.api';
-import {useAppDispatch, useAppSelector} from '../../redux/hooks';
-import {selectCoins, setGeneralCoins, setNews} from '../../redux/coinsSlice';
+import {useAppSelector} from '../../redux/hooks';
+import {selectCoins} from '../../redux/coinsSlice';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {HomeNav} from '../../navigation/HomeNav';
 import {NewsList} from '../../components/home/newsList/NewsList.component';
+import {selectUser} from '../../redux/userSlice';
 
 const HomeScreen: FC = () => {
   const coinsState = useAppSelector(selectCoins);
-  const dispatch = useAppDispatch();
+  const userState = useAppSelector(selectUser);
   const navigation = useNavigation<NativeStackNavigationProp<HomeNav>>();
-
-  useEffect(() => {
-    const asd = async () => {
-      // console.log((await getAllCoins()).results);
-      try {
-        const response = await getAllCoins();
-        const response2 = await getNews();
-        dispatch(setGeneralCoins(response));
-        dispatch(setNews(response2));
-      } catch (err) {}
-    };
-
-    asd();
-  }, []);
 
   return (
     <BaseScreen backgroundColor={Colors.secondary}>
       <ScrollView style={{marginTop: 20}} showsVerticalScrollIndicator={false}>
-        <HomeHeader />
+        <HomeHeader onPress={() => navigation.navigate('UserInfoScreen')} />
         <HomeTotal />
         <View>
-          <Text style={{marginBottom: 10, fontWeight: 'bold', color: Colors.black}}>Noticias de Coindesk</Text>
-          <NewsList data={coinsState.news.slice(0, 10)} />
+          <Text style={{marginBottom: 10, fontWeight: 'bold', color: Colors.black}}>Noticias de CrytoPanic</Text>
+          {coinsState.news ? (
+            <NewsList data={coinsState.news.slice(0, 10)} />
+          ) : (
+            <ActivityIndicator size={'large'} color={Colors.primary} style={{marginBottom: 10}} />
+          )}
         </View>
-        {coinsState.generalCoins.slice(0, 5).map(item => (
+        <CoinItem
+          showConverted={false}
+          id={'ars'}
+          currency={'ARS'}
+          quantity={userState.userData.pesos}
+          price={1}
+          image={'https://assets.coingecko.com/coins/images/23054/large/nuARS_Logo.png?164314904'}
+          onPress={() => navigation.navigate('SelectPayScreen')}
+        />
+        {coinsState.generalCoins.slice(1, 5).map(item => (
           <CoinItem
             key={item.id}
             id={item.id}
@@ -69,7 +68,11 @@ const HomeScreen: FC = () => {
           <Text style={{marginBottom: 10, fontWeight: 'bold', color: Colors.black}}>
             Convertite en experto en criptomonedas
           </Text>
-          <NewsList data={coinsState.news.slice(10, 20)} />
+          {coinsState.news ? (
+            <NewsList data={coinsState.news.slice(10, 20)} />
+          ) : (
+            <ActivityIndicator size={'large'} color={Colors.primary} style={{marginBottom: 10}} />
+          )}
         </View>
       </ScrollView>
     </BaseScreen>

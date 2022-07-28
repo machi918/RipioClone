@@ -15,6 +15,7 @@ export const CarouselDot: FC<CarouselDotIntertface> = ({focused}) => {
         marginHorizontal: 5,
         borderRadius: 5,
         backgroundColor: focused ? Colors.primary : Colors.secondaryVariant,
-      }}></View>
+      }}
+    />
   );
 };

@@ -4,12 +4,12 @@ import {RootState} from './store';
 
 interface initialContentState {
   generalCoins: CoinsGeneralInterface[];
-  news: NewsInterface[];
+  news: NewsInterface[] | null;
 }
 
 const initialState: initialContentState = {
   generalCoins: [],
-  news: [],
+  news: null,
 };
 
 export const coinsSlice = createSlice({

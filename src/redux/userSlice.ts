@@ -1,14 +1,20 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {UserData} from '../service/firebase/users.service';
 import {RootState} from './store';
 
 interface initialContentState {
-  name: string;
-  rpc: number;
+  userData: UserData;
+  uid: string | null;
 }
 
 const initialState: initialContentState = {
-  name: 'Matias',
-  rpc: 12,
+  userData: {
+    name: '',
+    rpc: 0,
+    pesos: 0,
+    mail: '',
+  },
+  uid: null,
 };
 
 export const userSlice = createSlice({
@@ -19,11 +25,24 @@ export const userSlice = createSlice({
     // setUserData: (state, action: PayloadAction<{name: string; rpc: number}>) => {
     //   state.generalCoins = action.payload;
     // },
-    reset: () => initialState,
+    setUserData: (state, action: PayloadAction<initialContentState>) => {
+      state.userData = action.payload.userData;
+      state.uid = action.payload.uid;
+    },
+    updateUserName: (state, action: PayloadAction<string>) => {
+      state.userData.name = action.payload;
+    },
+    updateRPC: (state, action: PayloadAction<number>) => {
+      state.userData.rpc += action.payload;
+    },
+    updatePesos: (state, action: PayloadAction<number>) => {
+      state.userData.rpc += action.payload;
+    },
+    resetUserData: () => initialState,
   },
 });
 
-export const {reset} = userSlice.actions;
+export const {setUserData, resetUserData, updateRPC, updatePesos, updateUserName} = userSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

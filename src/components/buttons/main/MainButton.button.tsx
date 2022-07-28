@@ -36,7 +36,7 @@ export const MainButton: FC<MainButtonInterface> = ({
         height: height ?? 40,
         width: '100%',
         borderRadius: borderRadius ?? 20,
-        backgroundColor: disabled ? '#444' : backgroundColor ?? Colors.primary,
+        backgroundColor: disabled ? '#D3D3D3' : backgroundColor ?? Colors.primary,
         borderColor: borderColor ?? 'rgba(0,0,0,0)',
         borderWidth: borderWidth ?? 0,
         alignItems: 'center',
