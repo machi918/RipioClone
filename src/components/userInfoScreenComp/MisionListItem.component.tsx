@@ -16,7 +16,7 @@ export const MisionListItem: FC<MisionListItemInterface> = ({rpcWON, subtitle, t
     <NewView
       flexDirection="row"
       justifyContent="space-between"
-      style={{height: 60, borderBottomWidth: 1, borderTopWidth: 1, borderColor: '#D3D3D3'}}>
+      style={{height: 60, borderBottomWidth: 1, borderTopWidth: 1, borderColor: '#D3D3D3', paddingHorizontal: 20}}>
       <NewView justifyContentCenter allHeight style={{width: '75%'}}>
         <Text numberOfLines={1} style={{fontWeight: 'bold', color: Colors.black}}>
           {title}
@@ -25,9 +25,9 @@ export const MisionListItem: FC<MisionListItemInterface> = ({rpcWON, subtitle, t
           {subtitle}
         </Text>
       </NewView>
-      <NewView alignItemsCenter flexDirection="row" allHeight>
+      <NewView alignItemsCenter flexDirection="row" allHeight style={{width: '25%'}} justifyContent="flex-end">
         <Text>+{rpcWON}</Text>
-        <RightArrow name={'chevron-forward-outline'} size={22} color={Colors.black} />
+        <RightArrow />
       </NewView>
     </NewView>
   );

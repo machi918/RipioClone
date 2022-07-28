@@ -9,15 +9,22 @@ import {NumberPad} from '../../components/home/numberPad/NumberPad.component';
 import {MainButton} from '../../components/buttons';
 import {useAppDispatch} from '../../redux/hooks';
 import {updatePesos} from '../../redux/userSlice';
+import {updateFirebasePesos} from '../../service/firebase/users.service';
 
 const PayScreen: FC<NativeStackScreenProps<HomeNav, 'PayScreen'>> = ({route, navigation}) => {
   const [quantity, setQuantity] = useState<number>(0);
-  const {comision} = route.params;
+  const {comision, uid} = route.params;
   const dispatch = useAppDispatch();
 
-  function handleOnPress() {
-    dispatch(updatePesos(quantity));
-    navigation.pop(2);
+  async function handleUpdate(userUID: string, pesosQuantity: number, comisionPesos: number) {
+    const money = pesosQuantity - pesosQuantity * (comisionPesos / 100);
+    try {
+      await updateFirebasePesos(userUID, money);
+      dispatch(updatePesos(money));
+      navigation.pop(2);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -35,7 +42,7 @@ const PayScreen: FC<NativeStackScreenProps<HomeNav, 'PayScreen'>> = ({route, nav
         onDeletePress={() => setQuantity(Math.floor(quantity / 10))}
         onDotPress={() => setQuantity(quantity)}
       />
-      <MainButton text="CONTINUAR" onPress={() => handleOnPress()} />
+      <MainButton text="CONTINUAR" onPress={() => handleUpdate(uid!, quantity, comision)} />
     </BaseScreen>
   );
 };
