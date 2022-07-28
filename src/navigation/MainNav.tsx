@@ -12,7 +12,7 @@ export type MainNav = {
   TabNav: undefined;
   CoinScreen: CoinScreenInterface;
   PayScreen: SelectPayScreenInterface;
-  SelectPayScreen: undefined;
+  SelectPayScreen: {uid: string};
   UserInfoScreen: undefined;
 };
 
