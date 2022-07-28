@@ -27,14 +27,14 @@ async function getUser(uid: string) {
   return userSnapshot as UserData;
 }
 
-async function updateRPC(uid: string, rpc: number) {
+async function updateFirebaseRPC(uid: string, rpc: number) {
   const response = await firestore().collection('users').doc(uid).update({rpc});
   return response;
 }
 
-async function updatePesos(uid: string, rpc: number) {
-  const response = await firestore().collection('users').doc(uid).update({rpc});
+async function updateFirebasePesos(uid: string, pesos: number) {
+  const response = await firestore().collection('users').doc(uid).update({pesos});
   return response;
 }
 
-export {getUser, updateRPC, updatePesos, onUserCreate};
+export {getUser, updateFirebaseRPC, updateFirebasePesos, onUserCreate};
