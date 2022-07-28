@@ -9,7 +9,7 @@ interface initialContentState {
 
 const initialState: initialContentState = {
   userData: {
-    name: '',
+    name: 'Invitado',
     rpc: 0,
     pesos: 0,
     mail: '',
@@ -36,7 +36,7 @@ export const userSlice = createSlice({
       state.userData.rpc += action.payload;
     },
     updatePesos: (state, action: PayloadAction<number>) => {
-      state.userData.rpc += action.payload;
+      state.userData.pesos += action.payload;
     },
     resetUserData: () => initialState,
   },
