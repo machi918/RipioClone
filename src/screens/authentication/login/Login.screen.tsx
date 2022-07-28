@@ -2,10 +2,10 @@ import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {FC, useState} from 'react';
-import {View, TextInput, StyleSheet, Image} from 'react-native';
+import {View, Image} from 'react-native';
 import Animated, {useAnimatedStyle, useSharedValue, withRepeat, withTiming} from 'react-native-reanimated';
 import {Colors} from '../../../assets/theme/Colors';
-import {TitleText} from '../../../components';
+import {EmailInput, PasswordInput, TitleText} from '../../../components';
 import {MainButton, OutfilledButton} from '../../../components/buttons';
 import {PressableText} from '../../../components/buttons/pressableText/PressableText.button';
 import {AuthNav} from '../../../navigation/auth/AuthNav';
@@ -51,31 +51,8 @@ const LoginScreen: FC = () => {
 
       <View style={{width: '100%', alignItems: 'center'}}>
         <TitleText text="¡El mundo cripto te espera!" centered marginTop={10} />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Mail"
-          onChangeText={text => setMail(text)}
-          accessibilityLabel={'Correo electrónico'}
-          autoCapitalize={'none'}
-          underlineColorAndroid={Colors.primary}
-          keyboardType={'email-address'}
-          autoComplete={'email'}
-          maxLength={40}
-          textContentType={'emailAddress'}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Contraseña"
-          onChangeText={text => setPass(text)}
-          accessibilityLabel={'Contraseña'}
-          autoCapitalize={'none'}
-          underlineColorAndroid={Colors.primary}
-          secureTextEntry={true}
-          keyboardType={'default'}
-          textContentType={'password'}
-          autoComplete={'password'}
-          maxLength={40}
-        />
+        <EmailInput height={50} onChangeText={text => setMail(text)} />
+        <PasswordInput height={50} onChangeText={text => setPass(text)} />
       </View>
       <View style={{width: '100%', alignItems: 'flex-end'}}>
         <PressableText
@@ -84,7 +61,8 @@ const LoginScreen: FC = () => {
           onPress={() => navigation.navigate('ForgetPasswordScreen')}
         />
       </View>
-      <View style={{position: 'absolute', bottom: 40, right: 20, left: 20}}>
+      <View style={{marginTop: 70}}>
+        {/* <View style={{position: 'absolute', bottom: 40, right: 20, left: 20}}> */}
         <MainButton
           text="Ingresar"
           onPress={() => handleSignUp(mail, pass)}
@@ -95,12 +73,5 @@ const LoginScreen: FC = () => {
     </BaseScreen>
   );
 };
-
-const styles = StyleSheet.create({
-  textInput: {
-    width: '100%',
-    height: 50,
-  },
-});
 
 export default LoginScreen;

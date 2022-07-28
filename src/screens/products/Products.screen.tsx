@@ -1,14 +1,19 @@
 import React, {FC} from 'react';
-import {View, Text} from 'react-native';
+import {Text, Image} from 'react-native';
 import {Colors} from '../../assets/theme/Colors';
-import {TitleText} from '../../components';
+import {NewView, TitleText} from '../../components';
 import {BaseScreen} from '../index';
 
 const ProductsScreen: FC = () => {
   return (
     <BaseScreen>
       <TitleText text="Productos" />
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <NewView allCentered style={{flex: 1}}>
+        <Image
+          source={require('../../assets/images/launch/1.png')}
+          style={{width: 200, height: 200}}
+          resizeMode={'contain'}
+        />
         <Text
           style={{
             marginTop: 20,
@@ -21,7 +26,7 @@ const ProductsScreen: FC = () => {
           }}>
           Estamos desarrollando un nuevo producto que va a potenciar tus rendimientos en cripto
         </Text>
-      </View>
+      </NewView>
     </BaseScreen>
   );
 };

@@ -37,7 +37,7 @@ const HomeScreen: FC = () => {
           quantity={userState.userData.pesos}
           price={1}
           image={'https://assets.coingecko.com/coins/images/23054/large/nuARS_Logo.png?164314904'}
-          onPress={() => navigation.navigate('SelectPayScreen')}
+          onPress={() => navigation.navigate('SelectPayScreen', {uid: userState.uid!})}
         />
         {coinsState.generalCoins.slice(1, 5).map(item => (
           <CoinItem
