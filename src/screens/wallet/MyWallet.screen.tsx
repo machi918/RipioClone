@@ -26,7 +26,7 @@ const MyWalletScreen: FC = () => {
             showConverted={false}
             id={'ars'}
             currency={'ARS'}
-            quantity={userState.pesos}
+            quantity={userState.userData.pesos}
             price={1}
             image={'https://assets.coingecko.com/coins/images/23054/large/nuARS_Logo.png?164314904'}
             onPress={() => console.log()}
