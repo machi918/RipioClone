@@ -3,10 +3,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SplashScreen} from '../../screens';
 import {AuthNav} from '../auth/AuthNav';
 import {MainNav} from '../MainNav';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {useAppDispatch} from '../../redux/hooks';
 import {resetUserData, setUserData} from '../../redux/userSlice';
+import {getUser, UserData} from '../../service/firebase/users.service';
 
 export type AppNav = {
   MainNav: undefined;
@@ -16,24 +16,25 @@ export type AppNav = {
 const Stack = createNativeStackNavigator<AppNav>();
 
 export const AppNav: FC = () => {
-  // Set an initializing state whilst Firebase connects
+  // Set an initializing state while Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
-  // const [fetchedUser, setFetchedUser] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
   // Handle user state changes
-  function onAuthStateChanged(userAuth: any) {
-    // const userData: FirebaseAuthTypes.User = userAuth;
+  async function onAuthStateChanged(userAuth: any) {
+    const userData: FirebaseAuthTypes.User = userAuth;
     if (userAuth) {
-      dispatch(
-        setUserData({
-          mail: 'asdasd',
-          name: 'Mati',
-          rpc: 200,
-          pesos: 20202,
-        }),
-      );
+      const userSVInfo: UserData = await getUser(userData.uid);
+      if (userSVInfo) {
+        console.log(userSVInfo);
+        dispatch(
+          setUserData({
+            userData: {...userSVInfo},
+            uid: userData.uid,
+          }),
+        );
+      }
     } else {
       dispatch(resetUserData());
     }
@@ -58,7 +59,7 @@ export const AppNav: FC = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       {!user ? (
-        <Stack.Screen name="AuthNav" component={AuthNav} />
+        <Stack.Screen name="AuthNav" component={AuthNav} options={{animation: 'fade'}} />
       ) : (
         <Stack.Screen name="MainNav" component={MainNav} />
       )}
