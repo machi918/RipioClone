@@ -23,7 +23,7 @@ export const BaseScreen: FC<BaseScreenInterface> = ({
       <TouchableWithoutFeedback accessible={false} onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView
           style={[{flex: 1, height: '100%'}, backgroundStyle]}
-          behavior={isIos ? 'padding' : undefined}>
+          behavior={isIos ? 'padding' : 'height'}>
           <StatusBar barStyle={'light-content'} />
           <View
             style={[
@@ -46,7 +46,7 @@ export const BaseScreen: FC<BaseScreenInterface> = ({
     return (
       <KeyboardAvoidingView
         style={[{flex: 1, height: '100%'}, backgroundStyle]}
-        behavior={isIos ? 'padding' : undefined}>
+        behavior={isIos ? 'padding' : 'height'}>
         <StatusBar barStyle={'light-content'} />
         <View
           style={[

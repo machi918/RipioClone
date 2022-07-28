@@ -1,11 +1,11 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React, {FC, useEffect, useState} from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, ActivityIndicator} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
-import {BackBar} from '../../../components';
+import {BackBar, CoinChart} from '../../../components';
 import {MiniButton} from '../../../components/buttons/miniButton/MiniButton.button';
 import {MainNav} from '../../../navigation/MainNav';
-import {getCoinHistoricalPrice} from '../../../service/https/coins.api';
+import {CoinHistoricalPriceInterface, getCoinHistoricalPrice} from '../../../service/https/coins.api';
 import {BaseScreen} from '../../index';
 
 export interface CoinScreenInterface {
@@ -20,17 +20,22 @@ const CoinScreen: FC<NativeStackScreenProps<MainNav, 'CoinScreen'>> = ({route, n
   const {currency, quantity, price, image, id} = route.params;
 
   const [loading, setLoading] = useState<boolean>(false);
+  const [data, setData] = useState<CoinHistoricalPriceInterface[]>([]);
 
   useEffect(() => {
     console.log('Rendered');
     const coinData = async () => {
       setLoading(true);
-      const response = await getCoinHistoricalPrice(id);
-      setLoading(false);
-
-      console.log(response);
+      try {
+        const response = await getCoinHistoricalPrice(id);
+        setLoading(false);
+        setData(response);
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
     };
-    // coinData();
+    coinData();
   }, [id]);
 
   return (
@@ -51,7 +56,7 @@ const CoinScreen: FC<NativeStackScreenProps<MainNav, 'CoinScreen'>> = ({route, n
         </View>
         <Text>~ ${price * quantity}</Text>
       </View>
-      <View>
+      <View style={{marginBottom: 40}}>
         <View style={{flexDirection: 'row', width: '100%', justifyContent: 'space-evenly'}}>
           <MiniButton icon="arrow-back-outline" text="Comprar" onPress={() => console.log()} />
           <MiniButton icon="arrow-up-outline" text="Vender" onPress={() => console.log()} />
@@ -59,6 +64,13 @@ const CoinScreen: FC<NativeStackScreenProps<MainNav, 'CoinScreen'>> = ({route, n
           <MiniButton icon="arrow-forward-outline" text="Enviar" onPress={() => console.log()} />
           <MiniButton icon="arrow-down-outline" text="Swap" onPress={() => console.log()} />
         </View>
+      </View>
+      <View style={{width: '100%', height: 250}}>
+        {loading || data.length === 0 ? (
+          <ActivityIndicator size={'large'} color={'#ffa502'} />
+        ) : (
+          <CoinChart data={data} />
+        )}
       </View>
     </BaseScreen>
   );

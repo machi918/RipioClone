@@ -19,7 +19,7 @@ import {MisionList} from './userInfoScreenComp/MisionList.component';
 import {EmailInput} from './input/EmailInput.component';
 import {PasswordInput} from './input/PasswordInput.component';
 import {Input} from './input/Input.component';
-
+import {CoinChart} from './coinScreen/CoinChart.component';
 export {
   HomeHeader,
   HomeTotal,
@@ -42,4 +42,5 @@ export {
   EmailInput,
   PasswordInput,
   Input,
+  CoinChart,
 };
