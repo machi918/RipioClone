@@ -8,7 +8,6 @@ export const MyTabBar: FC<BottomTabBarProps> = ({state, descriptors, navigation}
   return (
     <View style={{flexDirection: 'row', width: '100%', justifyContent: 'space-around', backgroundColor: Colors.white}}>
       {state.routes.map((route, index) => {
-        // console.log(index, route);
         const {options} = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
@@ -59,17 +58,6 @@ export const MyTabBar: FC<BottomTabBarProps> = ({state, descriptors, navigation}
         };
 
         return (
-          //   <TouchableOpacity
-          //     key={index}
-          //     accessibilityRole="button"
-          //     accessibilityState={isFocused ? {selected: true} : {}}
-          //     accessibilityLabel={options.tabBarAccessibilityLabel}
-          //     testID={options.tabBarTestID}
-          //     onPress={onPress}
-          //     onLongPress={onLongPress}
-          //     style={{flex: 1}}>
-          //     <Text style={{color: isFocused ? '#673ab7' : '#222'}}>{label.toString()}</Text>
-          //   </TouchableOpacity>
           <ButtomNavItem
             key={route.key}
             isFocused={isFocused}

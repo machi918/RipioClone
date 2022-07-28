@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import {TouchableOpacity, View, Text} from 'react-native';
+import {TouchableOpacity, Text} from 'react-native';
+import {NewView} from '../common/view/NewView.component';
 
 interface MovementsItemInterface {
   onPress: () => void;
@@ -11,7 +12,7 @@ interface MovementsInterface {
   id: string;
   action: string;
   value: number;
-  date: string;
+  date: number;
 }
 
 export const MovementsItem: FC<MovementsItemInterface> = ({onPress, data}) => {
@@ -19,27 +20,23 @@ export const MovementsItem: FC<MovementsItemInterface> = ({onPress, data}) => {
 
   return (
     <TouchableOpacity onPress={onPress} style={{height: 40, width: '100%', marginVertical: 10}}>
-      <View
+      <NewView
+        allWidth
+        alignItemsCenter
+        flexDirection="row"
+        justifyContent="space-between"
         style={{
           height: 40,
-          width: '100%',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
         }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          <View style={{width: 20, height: 20, borderRadius: 10, backgroundColor: '#00FF00', marginRight: 10}} />
-          <View>
+        <NewView flexDirection="row" alignItemsCenter>
+          <NewView style={{width: 20, height: 20, borderRadius: 10, backgroundColor: '#00FF00', marginRight: 10}} />
+          <NewView>
             <Text>{data.action}</Text>
-            <Text>{date.toString()}</Text>
-          </View>
-        </View>
+            <Text>{date.toString().slice(0, -15)}</Text>
+          </NewView>
+        </NewView>
         <Text>$ {data.value}</Text>
-      </View>
+      </NewView>
     </TouchableOpacity>
   );
 };

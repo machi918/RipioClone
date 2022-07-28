@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {NewView} from '../../common/view/NewView.component';
 import {SingleNumber} from './SingleNumber.component';
 
 interface NumberPadInterface {
@@ -10,23 +11,23 @@ interface NumberPadInterface {
 
 export const NumberPad: FC<NumberPadInterface> = ({onPress, onDeletePress, onDotPress}) => {
   return (
-    <View style={style.container}>
-      <View style={style.rows}>
+    <NewView allWidth style={style.container}>
+      <NewView allWidth style={style.rows}>
         <SingleNumber number={1} onPress={number => onPress(number)} />
         <SingleNumber number={2} onPress={number => onPress(number)} />
         <SingleNumber number={3} onPress={number => onPress(number)} />
-      </View>
-      <View style={style.rows}>
+      </NewView>
+      <NewView allWidth style={style.rows}>
         <SingleNumber number={4} onPress={number => onPress(number)} />
         <SingleNumber number={5} onPress={number => onPress(number)} />
         <SingleNumber number={6} onPress={number => onPress(number)} />
-      </View>
-      <View style={style.rows}>
+      </NewView>
+      <NewView allWidth style={style.rows}>
         <SingleNumber number={7} onPress={number => onPress(number)} />
         <SingleNumber number={8} onPress={number => onPress(number)} />
         <SingleNumber number={9} onPress={number => onPress(number)} />
-      </View>
-      <View style={style.rows}>
+      </NewView>
+      <NewView allWidth style={style.rows}>
         <SingleNumber
           number={0}
           text={'.'}
@@ -43,18 +44,18 @@ export const NumberPad: FC<NumberPadInterface> = ({onPress, onDeletePress, onDot
           onPressVariant={onDeletePress}
           onPress={number => onPress(number)}
         />
-      </View>
-    </View>
+      </NewView>
+    </NewView>
   );
 };
 
 const style = StyleSheet.create({
   container: {
     width: '100%',
-    marginVertical: 20,
+    marginBottom: 40,
+    marginTop: 20,
   },
   rows: {
-    width: '100%',
     justifyContent: 'space-between',
     flexDirection: 'row',
   },

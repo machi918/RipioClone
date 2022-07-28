@@ -18,20 +18,3 @@ export type PlusButtonType = Except<ButtonBaseType, 'text'> & {
 export type MiniButtonType = ButtonBaseType & {
   icon?: string;
 };
-
-// export type ActivityBook = ActivityBase & {
-//   intro: string
-//   chapters: ActivityBookChaptersInterface[]
-// }
-// export type ActivityFeedback = Except<ActivityBase, 'value'> & {
-//   questions: ActivityFeedbackQuestion[]
-// }
-// export type ActivityQuiz = Except<ActivityBase, 'value'> & {
-//   userAttemps: number
-//   userAttempsDetail: ActivityQuizUserAttempsDetail[]
-//   questions: ActivityQuizQuestion[]
-// }
-// export type ActivityForum = ActivityBase & {
-//   forum: ActivityForumDetail[]
-//   idforum: string
-// }

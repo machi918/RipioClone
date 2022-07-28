@@ -54,6 +54,9 @@ export const ButtomNavItem: FC<ButtomNavItemInterface> = props => {
     };
   });
 
+  /**
+   * Handles the animation and onPress
+   */
   function handlePress() {
     if (props.isFocused) {
       animatedPadding.value = withTiming(20, {
@@ -92,7 +95,6 @@ export const ButtomNavItem: FC<ButtomNavItemInterface> = props => {
           },
           animatedStyles,
         ]}>
-        {/* <Text style={{color: '#673ab7', marginRight: props.isFocused ? 5 : 0}}>IC</Text> */}
         <View style={{marginRight: props.isFocused ? 4 : 0}}>
           <Icon name={props.icon} size={20} color={Colors.onSecondary} />
         </View>

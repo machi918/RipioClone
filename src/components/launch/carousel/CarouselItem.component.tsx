@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
-import {View, Image, ImageRequireSource} from 'react-native';
+import {Image, ImageRequireSource} from 'react-native';
 import {TitleText} from '../../common/text/TitleText.component';
+import {NewView} from '../../common/view/NewView.component';
 
 export interface LaunchItemCarouselInterface {
   image: ImageRequireSource;
@@ -10,22 +11,16 @@ export interface LaunchItemCarouselInterface {
 
 export const LaunchCarouselItem: FC<LaunchItemCarouselInterface> = ({image, text}) => {
   return (
-    <View
+    <NewView
+      allWidth
+      allHeight
       style={{
-        width: '100%',
-        height: '100%',
         padding: 20,
       }}>
-      <View
-        style={{
-          width: '100%',
-          height: '100%',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
+      <NewView allWidth allHeight allCentered>
         <Image source={image} style={{width: 200, height: 200}} resizeMode={'contain'} />
         <TitleText text={text} centered />
-      </View>
-    </View>
+      </NewView>
+    </NewView>
   );
 };

@@ -16,6 +16,9 @@ import {UserInfoHeaderComponent} from './userInfoScreenComp/UserInfoHeader.compo
 import {UserInfoRPCComponent} from './userInfoScreenComp/UserInfoRPC.component';
 import {MisionListItem} from './userInfoScreenComp/MisionListItem.component';
 import {MisionList} from './userInfoScreenComp/MisionList.component';
+import {EmailInput} from './input/EmailInput.component';
+import {PasswordInput} from './input/PasswordInput.component';
+import {Input} from './input/Input.component';
 
 export {
   HomeHeader,
@@ -36,4 +39,7 @@ export {
   UserInfoRPCComponent,
   MisionList,
   MisionListItem,
+  EmailInput,
+  PasswordInput,
+  Input,
 };

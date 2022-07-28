@@ -22,6 +22,7 @@ export const PressableText: FC<PressableTextInterface> = ({
 }) => {
   return (
     <Pressable
+      {...props}
       style={{
         marginBottom: marginBottom ?? 0,
         marginTop: marginTop ?? 0,
@@ -29,8 +30,7 @@ export const PressableText: FC<PressableTextInterface> = ({
         marginRight: marginRight ?? 0,
         justifyContent: 'center',
         alignItems: 'center',
-      }}
-      {...props}>
+      }}>
       <Text style={{color: textColor ?? Colors.primary, fontWeight: 'bold', fontSize: 14}}>{text}</Text>
     </Pressable>
   );
