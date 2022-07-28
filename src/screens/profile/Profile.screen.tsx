@@ -1,12 +1,17 @@
 import React, {FC} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {Text, ScrollView} from 'react-native';
 import {Colors} from '../../assets/theme/Colors';
-import {ProfileHeader, ProfileSection, ProfileSectionItem, TitleText} from '../../components';
+import {NewView, ProfileHeader, ProfileSection, ProfileSectionItem, TitleText} from '../../components';
 import {BaseScreen} from '../index';
 import auth from '@react-native-firebase/auth';
 import {constants} from '../../utils/constants';
+import {ProfileNav} from '../../navigation/ProfileNav';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
 
 const ProfileScreen: FC = () => {
+  const navigation = useNavigation<NativeStackNavigationProp<ProfileNav>>();
+
   async function handleLogOut() {
     try {
       await auth().signOut();
@@ -20,7 +25,7 @@ const ProfileScreen: FC = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <TitleText text="Perfil" />
 
-        <ProfileHeader />
+        <ProfileHeader onPress={() => navigation.navigate('UserInfoScreen')} />
 
         <ProfileSection title="Ajustes de perfil">
           <ProfileSectionItem text="Datos personales" icon="person-outline" onPress={() => console.log()} />
@@ -52,9 +57,9 @@ const ProfileScreen: FC = () => {
           />
         </ProfileSection>
 
-        <View style={{width: '100%', height: 50, alignItems: 'center'}}>
+        <NewView allWidth alignItemsCenter style={{height: 50}}>
           <Text>Versión {constants.version}</Text>
-        </View>
+        </NewView>
       </ScrollView>
     </BaseScreen>
   );
