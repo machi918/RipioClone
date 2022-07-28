@@ -36,17 +36,15 @@ export interface NewsInterface {
 
 //-----------------------------------------
 
-export interface CoinHistoricalPriceInterface {
-  date: number;
-  price: number;
-}
+// export interface CoinHistoricalPriceInterface {
+//   date: number;
+//   price: number;
+// }
 
 //-----------------------------------------
 
 export async function getAllCoins(): Promise<CoinsGeneralInterface[]> {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const response = await httpClient.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=ars');
     return dummyData;
   } catch (error) {
     throw new Error('error');
@@ -64,12 +62,12 @@ export async function getNews(): Promise<NewsGeneralInterface> {
   }
 }
 
-export async function getCoinHistoricalPrice(): Promise<CoinHistoricalPriceInterface> {
+export async function getCoinHistoricalPrice(id: string): Promise<[]> {
   try {
     const response = await httpClient.get(
-      'https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=ars&days=60&interval=daily',
+      `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=ars&days=60&interval=daily`,
     );
-    return response.data;
+    return response.data.prices;
   } catch (error) {
     throw new Error('error');
   }

@@ -1,10 +1,11 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import React, {FC} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {View, Text, Image} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
 import {BackBar} from '../../../components';
 import {MiniButton} from '../../../components/buttons/miniButton/MiniButton.button';
 import {MainNav} from '../../../navigation/MainNav';
+import {getCoinHistoricalPrice} from '../../../service/https/coins.api';
 import {BaseScreen} from '../../index';
 
 export interface CoinScreenInterface {
@@ -16,7 +17,21 @@ export interface CoinScreenInterface {
 }
 
 const CoinScreen: FC<NativeStackScreenProps<MainNav, 'CoinScreen'>> = ({route, navigation}) => {
-  const {currency, quantity, price, image} = route.params;
+  const {currency, quantity, price, image, id} = route.params;
+
+  const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    console.log('Rendered');
+    const coinData = async () => {
+      setLoading(true);
+      const response = await getCoinHistoricalPrice(id);
+      setLoading(false);
+
+      console.log(response);
+    };
+    // coinData();
+  }, [id]);
 
   return (
     <BaseScreen backgroundColor={Colors.white}>
