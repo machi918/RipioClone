@@ -88,7 +88,7 @@ export async function getCoinHistoricalPrice(id: string): Promise<CoinHistorical
       };
       parsedData.push(aux);
     }
-    throw new Error('asdasd');
+    return parsedData;
   } catch (error) {
     throw new Error('La información no está disponible');
   }

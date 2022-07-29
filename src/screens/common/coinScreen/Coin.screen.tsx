@@ -31,7 +31,6 @@ const CoinScreen: FC<NativeStackScreenProps<MainNav, 'CoinScreen'>> = ({route, n
         const response = await getCoinHistoricalPrice(id);
         setLoading(false);
         setData(response);
-        console.log(response);
       } catch (error) {
         //@ts-ignore
         Toast.show({text1: error.toString()});
