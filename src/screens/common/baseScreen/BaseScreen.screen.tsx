@@ -61,6 +61,13 @@ export const BaseScreen: FC<BaseScreenInterface> = ({
             insetStyle,
           ]}>
           {children}
+          {/* <ScrollView
+            style={[{flex: 1, height: '100%'}, backgroundStyle]}
+            contentContainerStyle={[style]}
+            bounces={false}
+            keyboardShouldPersistTaps={'handled'}>
+            {children}
+          </ScrollView> */}
         </View>
       </KeyboardAvoidingView>
     );

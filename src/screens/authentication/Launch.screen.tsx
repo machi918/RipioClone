@@ -10,9 +10,11 @@ import {NewView, LaunchCarousel} from '../../components';
 import {MainButton} from '../../components/buttons';
 import {CarouselDots} from '../../components/launch/carousel/CarouselDots.component';
 import {AuthNav} from '../../navigation/auth/AuthNav';
+import Toast from 'react-native-toast-message';
 import {onUserCreate} from '../../service/firebase/users.service';
 import {constants} from '../../utils/constants';
 import {BaseScreen} from '../common/baseScreen/BaseScreen.screen';
+import {i18nFirebaseError} from '../../service/firebase/firebase-languaje-error';
 
 const LaunchScreen: FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<AuthNav>>();
@@ -45,7 +47,8 @@ const LaunchScreen: FC = () => {
       });
       console.log('User account created & signed in!');
     } catch (error) {
-      console.error(error);
+      //@ts-ignore
+      Toast.show({text1: i18nFirebaseError(error.code)});
       setLoading(false);
     }
   }
