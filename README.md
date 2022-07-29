@@ -86,9 +86,11 @@ Y por más de que implique un cambio muy central y que lleva tiempo implementar,
 una buena idea implementar la librería [React Native Fast Image](https://github.com/DylanVann/react-native-fast-image). Ësta permite cachear las
 imágenes más eficientemente, provocando una gran mejora de performance.
 
+- En cuanto a la App oficial, sacando la posibilidad de que sea por seguridad, por lo menos en iOS, con mucha frecuencia se cierra la sesión y genera errores sin información. Esto puede generarse al token estar venciendo muy rápido o que no se maneje bien las fechas al hacer el decode del mismo. Es sólo una posibilidad, al conocer el código oficial no puedo estimarlo con exactitud.
+
 ## Descarga
 
-Si no deseas iniciar todo le ámbito de desarrollo, puedes descargar el APK [AQUI](https://github.com/DylanVann/react-native-fast-image)
+Si no deseas iniciar todo el ámbito de desarrollo, puedes descargar el APK [AQUI](https://github.com/DylanVann/react-native-fast-image)
 
 ## Agradecimientos
 Muchas gracias por tomarse el tiempo de leer este archivo y de probar la app clon que realicé.
