@@ -64,7 +64,11 @@ En cuanto al manejo del estado e información de la app en uso, utilicé [Redux-
 
 ### APIs
 
-FALTA RELLENAR
+En la app, se consultan dos APIs diferentes para la información de las criptos y blockchain:
+
+- [Crypto Panic](https://cryptopanic.com/): Utilizada para obtener las ultimas noticias del mundo crypto.
+
+- [CoinGecko](https://www.coingecko.com/es): Utilizada para obtener los precios de una determinada cripto dentro de los ultimos 60 días.
 
 ## Librerías
 - [React Navigation](https://reactnavigation.org/)
