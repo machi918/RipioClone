@@ -1,5 +1,13 @@
 import React, {FC} from 'react';
-import {Platform, KeyboardAvoidingView, StatusBar, View, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import {
+  Platform,
+  KeyboardAvoidingView,
+  StatusBar,
+  View,
+  TouchableWithoutFeedback,
+  Keyboard,
+  ScrollView,
+} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Colors} from '../../../assets/theme/Colors';
 import {BaseScreenInterface} from './BaseScreen.interface';
@@ -12,6 +20,7 @@ export const BaseScreen: FC<BaseScreenInterface> = ({
   style,
   unsafe,
   isInputStyle = false,
+  isFixed = false,
 }) => {
   const insets = useSafeAreaInsets();
   const styleProps = style ?? {};
@@ -44,32 +53,56 @@ export const BaseScreen: FC<BaseScreenInterface> = ({
     );
   } else {
     return (
-      <KeyboardAvoidingView
-        style={[{flex: 1, height: '100%'}, backgroundStyle]}
-        behavior={isIos ? 'padding' : 'height'}>
-        <StatusBar barStyle={'light-content'} />
-        <View
-          style={[
-            {
-              justifyContent: 'flex-start',
-              alignItems: 'stretch',
-              height: '100%',
-              width: '100%',
-              paddingHorizontal: 20,
-            },
-            styleProps,
-            insetStyle,
-          ]}>
-          {children}
-          {/* <ScrollView
+      <View style={{flex: 1}}>
+        {isFixed ? (
+          <KeyboardAvoidingView
             style={[{flex: 1, height: '100%'}, backgroundStyle]}
-            contentContainerStyle={[style]}
-            bounces={false}
-            keyboardShouldPersistTaps={'handled'}>
-            {children}
-          </ScrollView> */}
-        </View>
-      </KeyboardAvoidingView>
+            behavior={isIos ? 'padding' : 'height'}>
+            <StatusBar barStyle={'light-content'} />
+            <View
+              style={[
+                {
+                  justifyContent: 'flex-start',
+                  alignItems: 'stretch',
+                  height: '100%',
+                  width: '100%',
+                  paddingHorizontal: 20,
+                },
+                styleProps,
+                insetStyle,
+              ]}>
+              {children}
+            </View>
+          </KeyboardAvoidingView>
+        ) : (
+          <KeyboardAvoidingView
+            style={[{flex: 1, height: '100%'}, backgroundStyle]}
+            behavior={isIos ? 'padding' : 'height'}>
+            <StatusBar barStyle={'light-content'} />
+            <View
+              style={[
+                {
+                  justifyContent: 'flex-start',
+                  alignItems: 'stretch',
+                  height: '100%',
+                  width: '100%',
+                  paddingHorizontal: 20,
+                },
+                styleProps,
+                insetStyle,
+              ]}>
+              <ScrollView
+                style={[{flex: 1, height: '100%'}, backgroundStyle]}
+                contentContainerStyle={[style]}
+                bounces={false}
+                keyboardShouldPersistTaps={'handled'}
+                showsVerticalScrollIndicator={false}>
+                {children}
+              </ScrollView>
+            </View>
+          </KeyboardAvoidingView>
+        )}
+      </View>
     );
   }
 };

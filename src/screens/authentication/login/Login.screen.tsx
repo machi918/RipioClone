@@ -44,35 +44,36 @@ const LoginScreen: FC = () => {
   }
 
   return (
-    <BaseScreen backgroundColor={Colors.white} isInputStyle>
-      <View style={{width: '100%', alignItems: 'flex-end', marginTop: 20, marginBottom: 10}}>
-        <OutfilledButton text="Registrate" onPress={() => navigation.navigate('SignUpScreen')} />
-      </View>
+    <BaseScreen backgroundColor={Colors.white}>
+      <View>
+        <View style={{width: '100%', alignItems: 'flex-end', marginTop: 20, marginBottom: 10}}>
+          <OutfilledButton text="Registrate" onPress={() => navigation.navigate('SignUpScreen')} />
+        </View>
 
-      <Animated.View style={[animatedStyle, {width: '100%', alignItems: 'center'}]}>
-        <Image source={require('../../../assets/images/launchPNG.png')} style={{width: 200, height: 150}} />
-      </Animated.View>
+        <Animated.View style={[animatedStyle, {width: '100%', alignItems: 'center'}]}>
+          <Image source={require('../../../assets/images/launchPNG.png')} style={{width: 200, height: 150}} />
+        </Animated.View>
 
-      <View style={{width: '100%', alignItems: 'center'}}>
-        <TitleText text="¡El mundo cripto te espera!" centered marginTop={10} />
-        <EmailInput height={50} onChangeText={text => setMail(text)} />
-        <PasswordInput height={50} onChangeText={text => setPass(text)} />
-      </View>
-      <View style={{width: '100%', alignItems: 'flex-end'}}>
-        <PressableText
-          text="¿Olvidaste tu contraseña?"
-          marginTop={12}
-          onPress={() => navigation.navigate('ForgetPasswordScreen')}
-        />
-      </View>
-      {/* <View style={{marginVertical: 40}}> */}
-      <View style={{position: 'absolute', bottom: 40, right: 20, left: 20}}>
-        <MainButton
-          text="Ingresar"
-          onPress={() => handleSignUp(mail, pass)}
-          loading={loading}
-          disabled={!isEmail(mail) || pass.length < 1}
-        />
+        <View style={{width: '100%', alignItems: 'center'}}>
+          <TitleText text="¡El mundo cripto te espera!" centered marginTop={10} />
+          <EmailInput height={50} onChangeText={text => setMail(text)} />
+          <PasswordInput height={50} onChangeText={text => setPass(text)} />
+        </View>
+        <View style={{width: '100%', alignItems: 'flex-end'}}>
+          <PressableText
+            text="¿Olvidaste tu contraseña?"
+            marginTop={12}
+            onPress={() => navigation.navigate('ForgetPasswordScreen')}
+          />
+        </View>
+        <View style={{marginVertical: 40}}>
+          <MainButton
+            text="Ingresar"
+            onPress={() => handleSignUp(mail, pass)}
+            loading={loading}
+            disabled={!isEmail(mail) || pass.length < 1}
+          />
+        </View>
       </View>
     </BaseScreen>
   );

@@ -38,7 +38,7 @@ const PayScreen: FC<NativeStackScreenProps<HomeNav, 'PayScreen'>> = ({route, nav
     <BaseScreen backgroundColor={Colors.secondary}>
       <BackBar onPress={() => navigation.goBack()} />
       <NewView allWidth alignItemsCenter>
-        <TitleText text="¿Cuánto querés cargar en tu wallet?" />
+        <TitleText text="¿Cuánto querés cargar en tu wallet?" marginTop={0} />
         <Text style={{fontSize: 40, fontWeight: 'bold', color: quantity > 1 ? Colors.onSecondary : Colors.black}}>
           $ {quantity.toFixed(2)}
         </Text>
@@ -51,6 +51,7 @@ const PayScreen: FC<NativeStackScreenProps<HomeNav, 'PayScreen'>> = ({route, nav
       />
       <MainButton
         text="Continuar"
+        marginBottom={10}
         onPress={() => handleUpdate(uid!, quantity, comision)}
         loading={loading}
         disabled={loading || quantity === 0}

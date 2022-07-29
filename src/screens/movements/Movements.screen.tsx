@@ -7,7 +7,7 @@ import {BaseScreen} from '../index';
 
 const MovementsScreen: FC = () => {
   return (
-    <BaseScreen>
+    <BaseScreen isFixed>
       <TitleText text="Movimientos" />
       <FlatList
         data={movimientosDummy}
