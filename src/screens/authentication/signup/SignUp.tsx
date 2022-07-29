@@ -8,10 +8,12 @@ import {BackBar, EmailInput, Input, PasswordInput} from '../../../components';
 import {useNavigation} from '@react-navigation/native';
 import {MainButton} from '../../../components/buttons';
 import Animated, {Easing, useAnimatedStyle, useSharedValue, withTiming} from 'react-native-reanimated';
+import Toast from 'react-native-toast-message';
 // @ts-ignore
 import validator from 'validator';
 // @ts-ignore
 import isEmail from 'validator/lib/isEmail';
+import {i18nFirebaseError} from '../../../service/firebase/firebase-languaje-error';
 
 const PassItem: FC<{quantity: number; text: string; verificated: boolean}> = ({quantity, text, verificated}) => {
   return (
@@ -70,9 +72,10 @@ const SignUpScreen: FC = () => {
         pesos: 0,
         rpc: 0,
       });
-      console.log(response);
     } catch (error) {
-      console.error(error);
+      //@ts-ignore
+      Toast.show({text1: i18nFirebaseError(error.code)});
+      setLoading(false);
     }
   }
 

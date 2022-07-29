@@ -22,9 +22,6 @@ export const userSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    // setUserData: (state, action: PayloadAction<{name: string; rpc: number}>) => {
-    //   state.generalCoins = action.payload;
-    // },
     setUserData: (state, action: PayloadAction<initialContentState>) => {
       state.userData = action.payload.userData;
       state.uid = action.payload.uid;

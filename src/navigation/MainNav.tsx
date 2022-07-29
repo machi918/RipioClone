@@ -7,6 +7,7 @@ import SelectPayScreen, {SelectPayScreenInterface} from '../screens/home/SelectP
 import {getAllCoins, getNews} from '../service/https/coins.api';
 import {setGeneralCoins, setNews} from '../redux/coinsSlice';
 import {useAppDispatch} from '../redux/hooks';
+import Toast from 'react-native-toast-message';
 
 export type MainNav = {
   TabNav: undefined;
@@ -22,16 +23,19 @@ export const MainNav: FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const asd = async () => {
+    const req = async () => {
       try {
         const response = await getAllCoins();
         const response2 = await getNews();
         dispatch(setGeneralCoins(response));
         dispatch(setNews(response2));
-      } catch (err) {}
+      } catch (error) {
+        //@ts-ignore
+        Toast.show({text1: error.toString()});
+      }
     };
 
-    asd();
+    req();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

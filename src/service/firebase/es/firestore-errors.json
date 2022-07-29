@@ -1,0 +1,19 @@
+{
+    "cancelled": "La operación fue cancelada.",
+    "unknown": "Error desconocido.",
+    "invalid-argument": "Argumento inválido.",
+    "deadline-exceeded": "El plazo expiró antes de que la operación pudiera completarse.",
+    "not_found": "No se encontró la entidad solicitada.",
+    "already-exists": "La entidad que está intentando crear, ya existe.",
+    "permission-denied": "No tiene permiso para ejecutar la operación especificada.",
+    "resource-exhausted": "Recurso agotado. La cuota de usuario o el sistema de archivos no tiene espacio.",
+    "failed-precondition": "La operación fue rechazada porque el sistema no está en un estado requerido para la ejecución de la operación.",
+    "aborted": "La operación fue abortada, generalmente debido a un problema de concurrencia.",
+    "out-of-range": "La operación se intentó más allá del rango válido.",
+    "unimplemented": "La operación no está implementada o no está soportada/habilitada en este servicio.",
+    "internal": "Error interno.",
+    "unavailable": "El servicio no está disponible actualmente.",
+    "data-loss": "Pérdida de datos irrecuperable.",
+    "ERR_FIREBASE_RECAPTCHA_CANCEL": "Error, debes completar el código Captcha para enviar el SMS."
+  }
+  

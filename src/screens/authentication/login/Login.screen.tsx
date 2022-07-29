@@ -10,6 +10,10 @@ import {MainButton, OutfilledButton} from '../../../components/buttons';
 import {PressableText} from '../../../components/buttons/pressableText/PressableText.button';
 import {AuthNav} from '../../../navigation/auth/AuthNav';
 import {BaseScreen} from '../../common/baseScreen/BaseScreen.screen';
+import Toast from 'react-native-toast-message';
+import {i18nFirebaseError} from '../../../service/firebase/firebase-languaje-error';
+// @ts-ignore
+import isEmail from 'validator/lib/isEmail';
 
 const LoginScreen: FC = () => {
   const navigation = useNavigation<NativeStackNavigationProp<AuthNav>>();
@@ -19,7 +23,6 @@ const LoginScreen: FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const offsetY = useSharedValue(-2);
-
   offsetY.value = withRepeat(withTiming(2, {duration: 700}), -1, true);
 
   const animatedStyle = useAnimatedStyle(() => {
@@ -34,7 +37,8 @@ const LoginScreen: FC = () => {
       await auth().signInWithEmailAndPassword(email, password);
       console.log('User account created & signed in!');
     } catch (error) {
-      console.error(error);
+      //@ts-ignore
+      Toast.show({text1: i18nFirebaseError(error.code)});
       setLoading(false);
     }
   }
@@ -61,13 +65,13 @@ const LoginScreen: FC = () => {
           onPress={() => navigation.navigate('ForgetPasswordScreen')}
         />
       </View>
-      <View style={{marginTop: 70}}>
-        {/* <View style={{position: 'absolute', bottom: 40, right: 20, left: 20}}> */}
+      {/* <View style={{marginVertical: 40}}> */}
+      <View style={{position: 'absolute', bottom: 40, right: 20, left: 20}}>
         <MainButton
           text="Ingresar"
           onPress={() => handleSignUp(mail, pass)}
           loading={loading}
-          disabled={mail.length < 1 || pass.length < 1}
+          disabled={!isEmail(mail) || pass.length < 1}
         />
       </View>
     </BaseScreen>

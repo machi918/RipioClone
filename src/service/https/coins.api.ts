@@ -54,7 +54,7 @@ export async function getAllCoins(): Promise<CoinsGeneralInterface[]> {
   try {
     return dummyData;
   } catch (error) {
-    throw new Error('error');
+    throw new Error('Ha ocurrido un problema al cargar las criptos');
   }
 }
 
@@ -63,9 +63,10 @@ export async function getNews(): Promise<NewsGeneralInterface> {
     const response = await httpClient.get(
       'https://cryptopanic.com/api/v1/posts/?auth_token=45ceb79c7efbb126fb6febcb5338622b0a8ab0f1&filter=hot&kind=news&regions=en',
     );
+
     return response.data;
   } catch (error) {
-    throw new Error('error');
+    throw new Error('Ha ocurrido un problema al cargar las noticias');
   }
 }
 
@@ -87,9 +88,8 @@ export async function getCoinHistoricalPrice(id: string): Promise<CoinHistorical
       };
       parsedData.push(aux);
     }
-
     return parsedData;
   } catch (error) {
-    throw new Error('error');
+    throw new Error('La información no está disponible');
   }
 }

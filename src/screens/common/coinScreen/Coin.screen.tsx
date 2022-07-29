@@ -7,6 +7,7 @@ import {MiniButton} from '../../../components/buttons/miniButton/MiniButton.butt
 import {MainNav} from '../../../navigation/MainNav';
 import {CoinHistoricalPriceInterface, getCoinHistoricalPrice} from '../../../service/https/coins.api';
 import {BaseScreen} from '../../index';
+import Toast from 'react-native-toast-message';
 
 export interface CoinScreenInterface {
   id: string;
@@ -30,9 +31,9 @@ const CoinScreen: FC<NativeStackScreenProps<MainNav, 'CoinScreen'>> = ({route, n
         const response = await getCoinHistoricalPrice(id);
         setLoading(false);
         setData(response);
-        console.log(response);
       } catch (error) {
-        console.log(error);
+        //@ts-ignore
+        Toast.show({text1: error.toString()});
       }
     };
     coinData();
