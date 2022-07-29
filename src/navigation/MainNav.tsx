@@ -23,7 +23,7 @@ export const MainNav: FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const asd = async () => {
+    const req = async () => {
       try {
         const response = await getAllCoins();
         const response2 = await getNews();
@@ -35,7 +35,7 @@ export const MainNav: FC = () => {
       }
     };
 
-    asd();
+    req();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
