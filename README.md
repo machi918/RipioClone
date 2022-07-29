@@ -7,7 +7,7 @@ Desarrollada únicamente con propósitos recreacionales.
 El objetivo fue desarrollar un clon de la App de [Ripio](https://play.google.com/store/apps/details?id=com.ripio.android&hl=es_AR&gl=US) con el fin de 
 testear un poco mis habilidades y realizar algunas modificaciones que podrían aplicarse muy bien en la App oficial.
 
-Esta app cuenta con integración con Firebase para el manejo de usuarios e información muy básica. La misma será borrada al cabo de 1 mes. Sólo se utiliza un correo
+Esta app cuenta con integración con Firebase para el manejo de usuarios e información muy básica. Esa información será borrada al cabo de 1 mes. Sólo se utiliza un correo
 electrónico con el fin de realizar la autenticación y persistir información de sus Pesos y RPC en Firestore. Si NO desea registrarse, puede ingresar anónimamente
 y disfrutar de la app igualmente.
 
@@ -53,7 +53,7 @@ npx react-native run-android
 
 En cuanto a la UI & UX se trató de realizar un calco lo más aproximado posible a la App original.
 
-Se agregaron algunas animaciones extra, que se puede apreciar en la barra de navegación de la app, interacción en ciertas pantallas y a la hora de realizar el registro.
+Se agregaron algunas animaciones extras. Éstas se puede apreciar en la barra de navegación de la app, interacción en ciertas pantallas y a la hora de realizar el registro.
 
 Todas éstas fueron realizadas utilizando la librería [react-native-reanimated](https://docs.swmansion.com/react-native-reanimated/)
 
