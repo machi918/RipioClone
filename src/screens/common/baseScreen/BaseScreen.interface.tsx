@@ -6,6 +6,7 @@ export interface BaseScreenInterface {
   backgroundColor?: string;
   style?: StyleProp<ViewStyle>;
   isInputStyle?: boolean;
+  isFixed?: boolean;
 
   /**
    * Should we not wrap in SafeAreaView? Defaults to false.

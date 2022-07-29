@@ -11,7 +11,7 @@ interface LaunchCarouselInterface {
 export const LaunchCarousel = React.forwardRef((props: LaunchCarouselInterface, ref: LegacyRef<PagerView>) => {
   //ForwardRef creates a FC that receives props and a ref from the parent
   return (
-    <View style={{width: 340, height: 340}}>
+    <View style={{width: 300, height: 300}}>
       <PagerView
         style={{flex: 1}}
         initialPage={0}

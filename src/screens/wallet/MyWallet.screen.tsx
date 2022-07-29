@@ -15,7 +15,7 @@ const MyWalletScreen: FC = () => {
   const userState = useAppSelector(selectUser);
 
   return (
-    <BaseScreen>
+    <BaseScreen isFixed>
       <TitleText text="Mi billetera" />
       <FlatList
         data={coinsState.generalCoins.slice(1)}
