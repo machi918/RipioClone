@@ -59,7 +59,7 @@ Todas éstas fueron realizadas utilizando la librería [react-native-reanimated]
 
 ### State - Redux
 
-En cuanto al manejo del estado e información de la app en uso, utilicé [Redux-Toolkit](https://redux-toolkit.js.org/), en el fin de manejar tanto el estado del usuario, como otros varios como pueden ser las noticias actuales y monedas dummy
+En cuanto al manejo del estado e información de la app en uso, utilicé [Redux-Toolkit](https://redux-toolkit.js.org/) con el fin de manejar tanto el estado del usuario, como otros varios como pueden ser las noticias actuales y monedas dummy
 
 ## Librerías
 - [React Navigation](https://reactnavigation.org/)
