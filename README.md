@@ -94,7 +94,9 @@ imágenes más eficientemente, provocando una gran mejora de performance.
 
 ## Descarga
 
-Si no deseas iniciar todo el ámbito de desarrollo, puedes descargar el APK [AQUI](https://github.com/DylanVann/react-native-fast-image)
+Si no deseas iniciar todo el ámbito de desarrollo, puedes descargar el APK [AQUÍ](https://drive.google.com/file/d/117rDklek4utuOzeFQVfDNMr_ySxXFO8b/view)
+
+Es posible que tengas que habilitar la instalación de apps no seguras dentro del dispositivo Android.
 
 ## Agradecimientos
 Muchas gracias por tomarse el tiempo de leer este archivo y de probar la app clon que realicé.
