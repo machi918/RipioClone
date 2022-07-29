@@ -73,9 +73,13 @@ En la app, se consultan dos APIs diferentes para la información de las criptos 
 ## Librerías
 - [React Navigation](https://reactnavigation.org/)
 - [React Native Firebase](https://rnfirebase.io/)
-- [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons)
-- [Redux Toolkit](https://redux-toolkit.js.org/)
 - [react-native-reanimated](https://docs.swmansion.com/react-native-reanimated/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [react-native-responsive-linechart](https://react-native-responsive-linechart.surge.sh/)
+- [react-native-toast-message](https://github.com/calintamas/react-native-toast-message)
+- [validator](https://github.com/validatorjs/validator.js)
+- [react-native-pager-view](https://github.com/callstack/react-native-pager-view)
+- [axios](https://axios-http.com/docs/intro)
 
 ## Mejoras Posibles
 - Con la llegada de la tan esperada [Nueva Arquitectura de React Native](https://reactnative.dev/docs/new-architecture-intro), se le hizo un refresh absolutamente necesario.
