@@ -17,6 +17,7 @@ y disfrutar de la app igualmente.
 - [Solución](#solución)
   - [Interfaz de usuario](#interfaz-de-usuario)
   - [State - Redux](#state---redux)
+  - [APIs](#apis)
 - [Librerías](#librerías)
 - [Mejoras Posibles](#mejoras-posibles)
 - [Descarga el APK](#descarga)
@@ -59,7 +60,11 @@ Todas éstas fueron realizadas utilizando la librería [react-native-reanimated]
 
 ### State - Redux
 
-En cuanto al manejo del estado e información de la app en uso, utilicé [Redux-Toolkit](https://redux-toolkit.js.org/) con el fin de manejar tanto el estado del usuario, como otros varios como pueden ser las noticias actuales y monedas dummy
+En cuanto al manejo del estado e información de la app en uso, utilicé [Redux-Toolkit](https://redux-toolkit.js.org/): El mismo maneja tanto el estado del usuario, como también las noticias actuales y monedas (éste último siendo un dummy)
+
+### APIs
+
+FALTA RELLENAR
 
 ## Librerías
 - [React Navigation](https://reactnavigation.org/)
