@@ -4,10 +4,8 @@ import {CoinScreen, PayScreen, UserInfoScreen} from '../screens';
 import {TabNav} from './TabNav';
 import {CoinScreenInterface} from '../screens/common/coinScreen/Coin.screen';
 import SelectPayScreen, {SelectPayScreenInterface} from '../screens/home/SelectPay.screen';
-import {getAllCoins, getNews} from '../service/https/coins.api';
-import {setGeneralCoins, setNews} from '../redux/coinsSlice';
-import {useAppDispatch} from '../redux/hooks';
 import Toast from 'react-native-toast-message';
+import {useCryptoInfo} from '../hooks/useCryptoInfo';
 
 export type MainNav = {
   TabNav: undefined;
@@ -20,24 +18,13 @@ export type MainNav = {
 const Stack = createNativeStackNavigator<MainNav>();
 
 export const MainNav: FC = () => {
-  const dispatch = useAppDispatch();
+  const {error} = useCryptoInfo();
 
   useEffect(() => {
-    const req = async () => {
-      try {
-        const response = await getAllCoins();
-        const response2 = await getNews();
-        dispatch(setGeneralCoins(response));
-        dispatch(setNews(response2));
-      } catch (error) {
-        //@ts-ignore
-        Toast.show({text1: error.toString()});
-      }
-    };
-
-    req();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (error) {
+      Toast.show({text1: error.message});
+    }
+  }, [error]);
 
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
