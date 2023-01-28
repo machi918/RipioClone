@@ -4,7 +4,7 @@ import {Colors} from '../../assets/theme/Colors';
 import {NewView, ProfileHeader, ProfileSection, ProfileSectionItem, TitleText} from '../../components';
 import {BaseScreen} from '../index';
 import auth from '@react-native-firebase/auth';
-import {constants} from '../../utils/constants';
+import pkg from '../../../package.json';
 import {ProfileNav} from '../../navigation/ProfileNav';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {useNavigation} from '@react-navigation/native';
@@ -81,7 +81,7 @@ const ProfileScreen: FC = () => {
         </ProfileSection>
 
         <NewView allWidth alignItemsCenter style={{height: 50}}>
-          <Text>Versión {constants.version}</Text>
+          <Text>Versión {pkg.version}</Text>
         </NewView>
       </ScrollView>
     </BaseScreen>

@@ -1,13 +1,13 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, useEffect} from 'react';
 import {View, Text, Image, ActivityIndicator} from 'react-native';
 import {Colors} from '../../../assets/theme/Colors';
 import {BackBar, CoinChart} from '../../../components';
 import {MiniButton} from '../../../components/buttons/miniButton/MiniButton.button';
 import {MainNav} from '../../../navigation/MainNav';
-import {CoinHistoricalPriceInterface, getCoinHistoricalPrice} from '../../../service/https/coins.api';
 import {BaseScreen} from '../../index';
 import Toast from 'react-native-toast-message';
+import {useHistoricalPrice} from '../../../hooks/useHistoricalPrice';
 
 export interface CoinScreenInterface {
   id: string;
@@ -19,25 +19,13 @@ export interface CoinScreenInterface {
 
 const CoinScreen: FC<NativeStackScreenProps<MainNav, 'CoinScreen'>> = ({route, navigation}) => {
   const {currency, quantity, price, image, id} = route.params;
-
-  const [loading, setLoading] = useState<boolean>(false);
-  const [data, setData] = useState<CoinHistoricalPriceInterface[]>([]);
+  const {data, isLoading, error} = useHistoricalPrice(id);
 
   useEffect(() => {
-    console.log('Rendered');
-    const coinData = async () => {
-      setLoading(true);
-      try {
-        const response = await getCoinHistoricalPrice(id);
-        setLoading(false);
-        setData(response);
-      } catch (error) {
-        //@ts-ignore
-        Toast.show({text1: error.toString()});
-      }
-    };
-    coinData();
-  }, [id]);
+    if (error) {
+      Toast.show({text1: error.message});
+    }
+  }, [error]);
 
   return (
     <BaseScreen backgroundColor={Colors.white}>
@@ -67,7 +55,7 @@ const CoinScreen: FC<NativeStackScreenProps<MainNav, 'CoinScreen'>> = ({route, n
         </View>
       </View>
       <View style={{width: '100%', height: 250}}>
-        {loading || data.length === 0 ? (
+        {isLoading || data.length === 0 ? (
           <ActivityIndicator size={'large'} color={'#ffa502'} />
         ) : (
           <CoinChart data={data} />

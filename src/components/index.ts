@@ -4,7 +4,6 @@ import {CoinItem} from './common/coinItem/CoinItem.component';
 import {ProfileSectionItem} from './profile/ProfileSectionItem.component';
 import {ProfileSection} from './profile/ProfileSection.component';
 import {ProfileHeader} from './profile/ProfileHeader.component';
-import {MyTabBar} from './bottomBar/BottomNavBar.component';
 import {BackBar} from './common/backBar/BackHeader.components';
 import {MovementsItem} from './movements/MovementsItem.component';
 import {TitleText} from './common/text/TitleText.component';
@@ -27,7 +26,6 @@ export {
   ProfileSectionItem,
   ProfileSection,
   ProfileHeader,
-  MyTabBar,
   BackBar,
   MovementsItem,
   TitleText,

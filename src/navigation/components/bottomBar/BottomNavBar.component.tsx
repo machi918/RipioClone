@@ -1,7 +1,7 @@
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import React, {FC} from 'react';
 import {View} from 'react-native';
-import {Colors} from '../../assets/theme/Colors';
+import {Colors} from '../../../assets/theme/Colors';
 import {ButtomNavItem} from './ButtomNavItem.component';
 
 export const MyTabBar: FC<BottomTabBarProps> = ({state, descriptors, navigation}) => {

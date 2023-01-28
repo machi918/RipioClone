@@ -1,6 +1,6 @@
 {
   "name": "RipioClone",
-  "version": "0.0.1",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -20,6 +20,7 @@
     "axios": "^0.27.2",
     "react": "18.0.0",
     "react-native": "0.69.2",
+    "react-native-dotenv": "^3.4.7",
     "react-native-email-link": "^1.14.1",
     "react-native-gesture-handler": "^2.5.0",
     "react-native-linear-gradient": "^2.6.2",

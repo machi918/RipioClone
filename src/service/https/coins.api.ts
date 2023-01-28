@@ -1,3 +1,4 @@
+import {NEWS_TOKEN, NEWS_URL, COINS_URL} from '@env';
 import {dummyData} from '../../assets/dummy/coinsDummy';
 import httpClient from './api.service';
 
@@ -54,42 +55,34 @@ export async function getAllCoins(): Promise<CoinsGeneralInterface[]> {
   try {
     return dummyData;
   } catch (error) {
-    throw new Error('Ha ocurrido un problema al cargar las criptos');
+    const typedError: Error = {name: 'COIN_ERROR', message: 'Ha ocurrido un problema al cargar las criptos'};
+    throw typedError;
   }
 }
 
 export async function getNews(): Promise<NewsGeneralInterface> {
-  try {
-    const response = await httpClient.get(
-      'https://cryptopanic.com/api/v1/posts/?auth_token=45ceb79c7efbb126fb6febcb5338622b0a8ab0f1&filter=hot&kind=news&regions=en',
-    );
-
-    return response.data;
-  } catch (error) {
-    throw new Error('Ha ocurrido un problema al cargar las noticias');
-  }
+  const response = await httpClient.get(NEWS_URL, {
+    params: {auth_token: NEWS_TOKEN, filter: 'hot', kind: 'news', regions: 'en'},
+  });
+  return response.data;
 }
 
 export async function getCoinHistoricalPrice(id: string): Promise<CoinHistoricalPriceInterface[]> {
-  try {
-    const response = await httpClient.get(
-      `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=ars&days=60&interval=daily`,
-    );
+  const response = await httpClient.get(`${COINS_URL}/${id}/market_chart`, {
+    params: {vs_currency: 'ars', days: '60', interval: 'daily'},
+  });
 
-    let rawData: CoinHistoricalPriceInterfaceResponse = response.data;
+  let rawData: CoinHistoricalPriceInterfaceResponse = response.data;
 
-    let parsedData: CoinHistoricalPriceInterface[] = [];
+  let parsedData: CoinHistoricalPriceInterface[] = [];
 
-    for (let index = 0; index < rawData.prices.length; index++) {
-      let aux: CoinHistoricalPriceInterface = {
-        x: index,
-        y: rawData.prices[index][1],
-        date: rawData.prices[index][0],
-      };
-      parsedData.push(aux);
-    }
-    return parsedData;
-  } catch (error) {
-    throw new Error('La información no está disponible');
+  for (let index = 0; index < rawData.prices.length; index++) {
+    let aux: CoinHistoricalPriceInterface = {
+      x: index,
+      y: rawData.prices[index][1],
+      date: rawData.prices[index][0],
+    };
+    parsedData.push(aux);
   }
+  return parsedData;
 }

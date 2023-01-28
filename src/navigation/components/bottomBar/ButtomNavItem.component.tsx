@@ -8,7 +8,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import {Colors} from '../../assets/theme/Colors';
+import {Colors} from '../../../assets/theme/Colors';
 //@ts-ignore
 import Icon from 'react-native-vector-icons/Ionicons';
 

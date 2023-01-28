@@ -18,19 +18,18 @@ const Stack = createNativeStackNavigator<AppNav>();
 export const AppNav: FC = () => {
   // Set an initializing state while Firebase connects
   const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<FirebaseAuthTypes.User | null>();
   const dispatch = useAppDispatch();
 
   // Handle user state changes
-  async function onAuthStateChanged(userAuth: any) {
-    const userData: FirebaseAuthTypes.User = userAuth;
+  const onAuthStateChanged = async (userAuth: FirebaseAuthTypes.User | null) => {
     if (userAuth) {
-      const userSVInfo: UserData = await getUser(userData.uid);
+      const userSVInfo: UserData = await getUser(userAuth.uid);
       if (userSVInfo) {
         dispatch(
           setUserData({
             userData: {...userSVInfo},
-            uid: userData.uid,
+            uid: userAuth.uid,
           }),
         );
       }
@@ -41,7 +40,7 @@ export const AppNav: FC = () => {
     if (initializing) {
       setInitializing(false);
     }
-  }
+  };
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
@@ -51,7 +50,6 @@ export const AppNav: FC = () => {
   }, []);
 
   if (initializing) {
-    // We haven't finished checking for the token yetnpm install --save @react-native-firebase/app
     return <SplashScreen />;
   }
 
