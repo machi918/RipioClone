@@ -5,8 +5,8 @@ import {WalletNav} from './WalletNav';
 import {ProductsNav} from './ProductsNav';
 import {MovementsScreen} from '../screens';
 import {ProfileNav} from './ProfileNav';
-import {MyTabBar} from '../components';
 import {MainNav} from './MainNav';
+import {MyTabBar} from './components';
 
 export type TabNavParams = MainNav & {
   HomeNav: undefined;
