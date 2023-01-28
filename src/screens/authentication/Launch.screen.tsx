@@ -12,7 +12,7 @@ import {CarouselDots} from '../../components/launch/carousel/CarouselDots.compon
 import {AuthNav} from '../../navigation/auth/AuthNav';
 import Toast from 'react-native-toast-message';
 import {onUserCreate} from '../../service/firebase/users.service';
-import {constants} from '../../utils/constants';
+import pkg from '../../../package.json';
 import {BaseScreen} from '../common/baseScreen/BaseScreen.screen';
 import {i18nFirebaseError} from '../../service/firebase/firebase-languaje-error';
 
@@ -56,7 +56,7 @@ const LaunchScreen: FC = () => {
   return (
     <BaseScreen backgroundColor={Colors.white}>
       <NewView allWidth alignItemsCenter>
-        <Text>{constants.version}</Text>
+        <Text>{pkg.version}</Text>
         <Image source={require('../../../src/assets/images/ripioLogo.png')} style={{width: 150, height: 80}} />
       </NewView>
       <NewView>

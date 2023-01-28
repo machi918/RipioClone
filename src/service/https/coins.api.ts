@@ -1,3 +1,4 @@
+import {NEWS_TOKEN, NEWS_URL, COINS_URL} from '@env';
 import {dummyData} from '../../assets/dummy/coinsDummy';
 import httpClient from './api.service';
 
@@ -60,16 +61,16 @@ export async function getAllCoins(): Promise<CoinsGeneralInterface[]> {
 }
 
 export async function getNews(): Promise<NewsGeneralInterface> {
-  const response = await httpClient.get(
-    'https://cryptopanic.com/api/v1/posts/?auth_token=45ceb79c7efbb126fb6febcb5338622b0a8ab0f1&filter=hot&kind=news&regions=en',
-  );
+  const response = await httpClient.get(NEWS_URL, {
+    params: {auth_token: NEWS_TOKEN, filter: 'hot', kind: 'news', regions: 'en'},
+  });
   return response.data;
 }
 
 export async function getCoinHistoricalPrice(id: string): Promise<CoinHistoricalPriceInterface[]> {
-  const response = await httpClient.get(
-    `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=ars&days=60&interval=daily`,
-  );
+  const response = await httpClient.get(`${COINS_URL}/${id}/market_chart`, {
+    params: {vs_currency: 'ars', days: '60', interval: 'daily'},
+  });
 
   let rawData: CoinHistoricalPriceInterfaceResponse = response.data;
 
